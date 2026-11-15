@@ -1,0 +1,299 @@
+{"instance_id": "synth_000001", "answer": "50", "evidence": ["645"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000002", "answer": "750", "evidence": ["v-418G"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000003", "answer": "10", "evidence": ["16/X2"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000004", "answer": "9", "evidence": ["531"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000005", "answer": "44", "evidence": ["92/S6"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000006", "answer": "70", "evidence": ["w-499G"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000007", "answer": "41", "evidence": ["56/J3"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000008", "answer": "78", "evidence": ["b34"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000009", "answer": "78", "evidence": ["769", "88/N3"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000010", "answer": "134", "evidence": ["b_254"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000011", "answer": "27", "evidence": ["b51"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000012", "answer": "4", "evidence": ["K#85"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000013", "answer": "706", "evidence": ["R37-663"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000014", "answer": "1782", "evidence": ["x-506J"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000015", "answer": "71", "evidence": ["b0"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000016", "answer": "42", "evidence": ["m-826V", "62H283"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000017", "answer": "128", "evidence": ["b942"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000018", "answer": "845", "evidence": ["40Q250"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000019", "answer": "65", "evidence": ["0y05"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000020", "answer": "6", "evidence": ["R35-717"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000021", "answer": "74.25", "evidence": ["8d39"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000022", "answer": "586", "evidence": ["80/V9"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000023", "answer": "594", "evidence": ["6q64"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000024", "answer": "24", "evidence": ["b8056"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000025", "answer": "90", "evidence": ["95/D4"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000026", "answer": "140", "evidence": ["b0z69"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000027", "answer": "416", "evidence": ["y-098M"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000028", "answer": "36", "evidence": ["85/Y7", "V&55"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000029", "answer": "74", "evidence": ["69U192"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000030", "answer": "2", "evidence": ["d-002N"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000031", "answer": "41", "evidence": ["1d74", "R06-307"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000032", "answer": "59", "evidence": ["a-922T"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000033", "answer": "67", "evidence": ["H&19", "r-226X"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000034", "answer": "25", "evidence": ["G#18"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000035", "answer": "8.92", "evidence": ["16/E3"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000036", "answer": "50", "evidence": ["b73"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000037", "answer": "60", "evidence": ["31/G5", "Z&97"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000038", "answer": "4", "evidence": ["b29"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000039", "answer": "2", "evidence": ["g-605J"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000040", "answer": "530", "evidence": ["j-297T"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000041", "answer": "180", "evidence": ["K#14"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000042", "answer": "10", "evidence": ["78/X1"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000043", "answer": "90", "evidence": ["6q62", "R78-605"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000044", "answer": "68", "evidence": ["99B616"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000045", "answer": "1088", "evidence": ["P&50"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000046", "answer": "55", "evidence": ["R96-932"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000047", "answer": "12", "evidence": ["R98-056"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000048", "answer": "8", "evidence": ["E&59"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000049", "answer": "9408", "evidence": ["15/V6"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000050", "answer": "3", "evidence": ["23/Q5"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000051", "answer": "71", "evidence": ["b121"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000052", "answer": "98", "evidence": ["b130"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000053", "answer": "48", "evidence": ["H&77"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000054", "answer": "27", "evidence": ["Q#77"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000055", "answer": "43", "evidence": ["b43J509"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000056", "answer": "86", "evidence": ["40P395"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000057", "answer": "81", "evidence": ["99C810"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000058", "answer": "180", "evidence": ["89/P0"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000059", "answer": "81", "evidence": ["Z#67", "7m59"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000060", "answer": "49", "evidence": ["b_b91"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000061", "answer": "9600", "evidence": ["R72-7A3"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000062", "answer": "495", "evidence": ["j-550Z"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000063", "answer": "3060", "evidence": ["P#86"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000064", "answer": "69", "evidence": ["822", "7w73"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000065", "answer": "50", "evidence": ["46/Y9"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000066", "answer": "19440", "evidence": ["b16M359"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000067", "answer": "63", "evidence": ["e-276T"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000068", "answer": "63", "evidence": ["89F336"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000069", "answer": "65", "evidence": ["Z&40", "58/P9", "q-579A", "B#89"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000070", "answer": "32", "evidence": ["835"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000071", "answer": "36", "evidence": ["f-633F"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000072", "answer": "180", "evidence": ["82/B7"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000073", "answer": "594", "evidence": ["D&13"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000074", "answer": "10", "evidence": ["59/H4"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000075", "answer": "10", "evidence": ["P#31"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000076", "answer": "4", "evidence": ["m-722G"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000077", "answer": "32", "evidence": ["RD2-035"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000078", "answer": "5", "evidence": ["b34/D7"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000079", "answer": "3.624", "evidence": ["S&17", "78J929"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000080", "answer": "61.875", "evidence": ["4t04"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000081", "answer": "130", "evidence": ["b078"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000082", "answer": "59", "evidence": ["Q#25", "36/K0"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000083", "answer": "180", "evidence": ["8h04"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000084", "answer": "8", "evidence": ["RE3-8A4"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000085", "answer": "750", "evidence": ["9a26"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000086", "answer": "9", "evidence": ["bE#89"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000087", "answer": "132", "evidence": ["13N385"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000088", "answer": "42", "evidence": ["9176"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000089", "answer": "81", "evidence": ["y-982X"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000090", "answer": "71", "evidence": ["697"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000091", "answer": "105", "evidence": ["4k19", "R#43"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000092", "answer": "1782", "evidence": ["z-384S"], "decision": "unique_survivor"}
+{"instance_id": "synth_000093", "answer": "78", "evidence": ["73V100"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000094", "answer": "57", "evidence": ["85/Y5"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000095", "answer": "51", "evidence": ["X#92"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000096", "answer": "40", "evidence": ["R35-2D1", "R74-490"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000097", "answer": "43200", "evidence": ["6630"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000098", "answer": "8", "evidence": ["8j31"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000099", "answer": "8", "evidence": ["b04"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000100", "answer": "2016", "evidence": ["T&79"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000101", "answer": "495", "evidence": ["y-170X"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000102", "answer": "134", "evidence": ["F&77"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000103", "answer": "68", "evidence": ["b04"], "decision": "unique_survivor"}
+{"instance_id": "synth_000104", "answer": "43", "evidence": ["x-282S"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000105", "answer": "44", "evidence": ["3r76"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000106", "answer": "12", "evidence": ["R68-7D7"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000107", "answer": "4", "evidence": ["b14", "b09"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000108", "answer": "50", "evidence": ["RC1-139"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000109", "answer": "83", "evidence": ["k-629L"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000110", "answer": "29", "evidence": ["X#80"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000111", "answer": "53", "evidence": ["E&77"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000112", "answer": "3", "evidence": ["R84-2E1"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000113", "answer": "191.4", "evidence": ["RC9-005", "L&37"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000114", "answer": "579", "evidence": ["31M068"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000115", "answer": "71", "evidence": ["6556"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000116", "answer": "40", "evidence": ["b1"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000117", "answer": "132", "evidence": ["n-098F"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000118", "answer": "785", "evidence": ["q-202H"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000119", "answer": "8", "evidence": ["7e28"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000120", "answer": "52", "evidence": ["815", "X#97"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000121", "answer": "45", "evidence": ["J#31"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000122", "answer": "200", "evidence": ["4g86", "14/R8"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000123", "answer": "10", "evidence": ["1952"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000124", "answer": "29", "evidence": ["R&38"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000125", "answer": "897", "evidence": ["RA1-944"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000126", "answer": "845", "evidence": ["6x29"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000127", "answer": "70", "evidence": ["C#68"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000128", "answer": "11", "evidence": ["V#24"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000129", "answer": "1", "evidence": ["R45-9A9"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000130", "answer": "76", "evidence": ["V&35", "B#74"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000131", "answer": "25", "evidence": ["16H848"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000132", "answer": "67", "evidence": ["R45-079"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000133", "answer": "41", "evidence": ["b39"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000134", "answer": "59", "evidence": ["F#91"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000135", "answer": "17", "evidence": ["b15"], "decision": "unique_survivor"}
+{"instance_id": "synth_000136", "answer": "409", "evidence": ["D&97"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000137", "answer": "1484", "evidence": ["87/J5"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000138", "answer": "6", "evidence": ["R60-440"], "decision": "unique_survivor"}
+{"instance_id": "synth_000139", "answer": "68", "evidence": ["Y#33"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000140", "answer": "48", "evidence": ["58Z377"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000141", "answer": "750", "evidence": ["7731"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000142", "answer": "50", "evidence": ["N&76"], "decision": "unique_survivor"}
+{"instance_id": "synth_000143", "answer": "6", "evidence": ["b-135G"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000144", "answer": "34", "evidence": ["C&70", "11V792"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000145", "answer": "8", "evidence": ["7i60"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000146", "answer": "10", "evidence": ["H#21"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000147", "answer": "70", "evidence": ["R#34"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000148", "answer": "27", "evidence": ["bL&97"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000149", "answer": "342", "evidence": ["33M346"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000150", "answer": "61", "evidence": ["6150"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000151", "answer": "1", "evidence": ["8x48"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000152", "answer": "4", "evidence": ["9449"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000153", "answer": "83", "evidence": ["b088"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000154", "answer": "108", "evidence": ["W&63"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000155", "answer": "34", "evidence": ["X#05", "99M841"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000156", "answer": "76", "evidence": ["E#96"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000157", "answer": "84", "evidence": ["9n11"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000158", "answer": "8", "evidence": ["b94Q574"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000159", "answer": "500", "evidence": ["C&61"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000160", "answer": "366", "evidence": ["8y23"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000161", "answer": "1248", "evidence": ["b01"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000162", "answer": "1090", "evidence": ["U&78"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000163", "answer": "27", "evidence": ["09N276"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000164", "answer": "90", "evidence": ["Z#10: Record FC-119"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000165", "answer": "50", "evidence": ["58/R2"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000166", "answer": "48", "evidence": ["02/E2"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000167", "answer": "5", "evidence": ["bR85-6D5"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000168", "answer": "1090", "evidence": ["23A588"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000169", "answer": "54", "evidence": ["2z85"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000170", "answer": "36", "evidence": ["R63-893"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000171", "answer": "32", "evidence": ["72/G1", "7364"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000172", "answer": "360", "evidence": ["09F769"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000173", "answer": "80", "evidence": ["b0653", "bRD6-338"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000174", "answer": "100", "evidence": ["Z#28 Record 52-221"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000175", "answer": "59", "evidence": ["RC8-338", "Y&54"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000176", "answer": "36", "evidence": ["33/D9"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000177", "answer": "10", "evidence": ["b01"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000178", "answer": "1050", "evidence": ["36B315"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000179", "answer": "6240", "evidence": ["b23"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000180", "answer": "66", "evidence": ["J#00", "94W923"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000181", "answer": "100", "evidence": ["b75"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000182", "answer": "624", "evidence": ["81U832"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000183", "answer": "81", "evidence": ["b419"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000184", "answer": "81", "evidence": ["7732"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000185", "answer": "18", "evidence": ["B&20", "y-359Y"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000186", "answer": "72", "evidence": ["K#76"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000187", "answer": "2", "evidence": ["c-597D"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000188", "answer": "19440", "evidence": ["R70-145"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000189", "answer": "5", "evidence": ["b115"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000190", "answer": "8", "evidence": ["bY88"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000191", "answer": "87", "evidence": ["x-812J"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000192", "answer": "56", "evidence": ["bB9-047", "b6609"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000193", "answer": "342", "evidence": ["84/P6"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000194", "answer": "0.25", "evidence": ["RE3-108"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000195", "answer": "54", "evidence": ["12/H4"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000196", "answer": "66", "evidence": ["2z69", "R21-0F8"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000197", "answer": "573", "evidence": ["b04"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000198", "answer": "1782", "evidence": ["RA4-338"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000199", "answer": "14", "evidence": ["bR27-9B9"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000200", "answer": "61", "evidence": ["b45F662"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000201", "answer": "27", "evidence": ["b04"], "decision": "unique_survivor"}
+{"instance_id": "synth_000202", "answer": "713", "evidence": ["D#08"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000203", "answer": "57", "evidence": ["Q&08", "10G001"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000204", "answer": "196", "evidence": ["V#36"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000205", "answer": "551", "evidence": ["15/E9"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000206", "answer": "51", "evidence": ["W&73"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000207", "answer": "57", "evidence": ["34E483", "33L547"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000208", "answer": "5", "evidence": ["R#86"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000209", "answer": "6", "evidence": ["22/X9"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000210", "answer": "38", "evidence": ["9e82"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000211", "answer": "5", "evidence": ["b04"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000212", "answer": "21600", "evidence": ["RB6-791"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000213", "answer": "164.4", "evidence": ["27/D5"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000214", "answer": "60", "evidence": ["1619"], "decision": "unique_survivor"}
+{"instance_id": "synth_000215", "answer": "2", "evidence": ["3484"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000216", "answer": "7", "evidence": ["b04"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000217", "answer": "5", "evidence": ["54/N4"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000218", "answer": "983", "evidence": ["6a98"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000219", "answer": "55", "evidence": ["5d26"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000220", "answer": "75", "evidence": ["q-284R"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000221", "answer": "9", "evidence": ["47/F4"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000222", "answer": "81", "evidence": ["771"], "decision": "unique_survivor"}
+{"instance_id": "synth_000223", "answer": "70", "evidence": ["R25-120", "y-828G"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000224", "answer": "136", "evidence": ["b01"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000226", "answer": "98", "evidence": ["0707"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000227", "answer": "68", "evidence": ["U#32"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000228", "answer": "66", "evidence": ["b84/C6"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000229", "answer": "45", "evidence": ["b_r56_920"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000230", "answer": "44", "evidence": ["RA0-146"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000231", "answer": "78", "evidence": ["1b55"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000232", "answer": "50", "evidence": ["44/J1"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000233", "answer": "318", "evidence": ["z-106D"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000234", "answer": "8", "evidence": ["b-871B"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000235", "answer": "42", "evidence": ["Y&35", "R26-865"], "decision": "unique_survivor"}
+{"instance_id": "synth_000236", "answer": "38", "evidence": ["G#99"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000237", "answer": "160", "evidence": ["b81S948"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000238", "answer": "822", "evidence": ["91/E0"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000239", "answer": "47", "evidence": ["b7z21", "b07/R8"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000240", "answer": "36", "evidence": ["L&15", "52/P9"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000241", "answer": "55", "evidence": ["b053"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000242", "answer": "37", "evidence": ["D&87", "R85-461"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000243", "answer": "1782", "evidence": ["n-894C"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000244", "answer": "180", "evidence": ["b-177V"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000245", "answer": "9", "evidence": ["b36"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000246", "answer": "51", "evidence": ["386"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000247", "answer": "28", "evidence": ["RD1-945"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000248", "answer": "50", "evidence": ["79N191", "R19-742"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000249", "answer": "43200", "evidence": ["57H669"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000250", "answer": "13", "evidence": ["f-539T"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000251", "answer": "74", "evidence": ["M#86"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000252", "answer": "288", "evidence": ["Q#54"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000253", "answer": "24.75", "evidence": ["9a95"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000254", "answer": "100", "evidence": ["b2d98"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000255", "answer": "14400", "evidence": ["p-834D"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000256", "answer": "900", "evidence": ["Y#36"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000257", "answer": "72", "evidence": ["90M142"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000258", "answer": "68", "evidence": ["P#38", "9y12"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000259", "answer": "6", "evidence": ["e-203E"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000260", "answer": "0", "evidence": ["R03-236"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000261", "answer": "45", "evidence": ["28/L6"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000262", "answer": "2", "evidence": ["c-360K"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000263", "answer": "71", "evidence": ["13H668"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000264", "answer": "77", "evidence": ["b04"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000265", "answer": "92", "evidence": ["m-890Y", "S&60"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000266", "answer": "428", "evidence": ["V&34"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000267", "answer": "24", "evidence": ["b6t72"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000268", "answer": "0.25", "evidence": ["76/D2"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000269", "answer": "69", "evidence": ["RE2-982", "B#86"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000270", "answer": "9", "evidence": ["34D277", "6933"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000271", "answer": "7", "evidence": ["23N658"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000272", "answer": "65", "evidence": ["6n98"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000273", "answer": "291", "evidence": ["bR44-2F2", "bY&98"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000274", "answer": "5", "evidence": ["b_04"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000275", "answer": "66", "evidence": ["j-526N"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000276", "answer": "3", "evidence": ["1490"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000277", "answer": "8", "evidence": ["62/Z5"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000278", "answer": "128", "evidence": ["5c69"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000279", "answer": "11", "evidence": ["090."], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000280", "answer": "1", "evidence": ["b04"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000281", "answer": "12", "evidence": ["0q19"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000282", "answer": "75", "evidence": ["62B885"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000283", "answer": "6", "evidence": ["m-697J", "62/E4"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000284", "answer": "56", "evidence": ["52R201"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000285", "answer": "510", "evidence": ["4f22"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000286", "answer": "100", "evidence": ["B&01", "C#69"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000287", "answer": "5", "evidence": ["b34/C8"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000288", "answer": "34", "evidence": ["A&87", "6z57"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000289", "answer": "48", "evidence": ["39/U7"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000290", "answer": "1", "evidence": ["R75-506"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000291", "answer": "49", "evidence": ["33/M9", "RE6-556"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000292", "answer": "64", "evidence": ["b01", "b02"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000293", "answer": "80", "evidence": ["410"], "decision": "unique_survivor"}
+{"instance_id": "synth_000294", "answer": "66", "evidence": ["s-961F"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000295", "answer": "9", "evidence": ["2g76"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000296", "answer": "30", "evidence": ["8278"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000297", "answer": "50", "evidence": ["1z04"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000298", "answer": "62", "evidence": ["p-522H", "8866"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000299", "answer": "8", "evidence": ["5441", "J#69"], "decision": "commit_among_survivors"}
+{"instance_id": "synth_000300", "answer": "55", "evidence": ["J&60", "682"], "decision": "commit_among_survivors"}

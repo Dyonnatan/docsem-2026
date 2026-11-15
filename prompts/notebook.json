@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "notes": "Rules used by the C3C reviewer and by the deterministic closing. Cards are keyed by ambiguity family, never by task; the model never sees gold labels.",
+  "cards": [
+    {
+      "schema": "S-incl",
+      "fault": "added_vs_total",
+      "status": "accepted",
+      "always": true,
+      "rule": "If the query asks for a part allocated from a base, emit two readings: the part alone, and base plus that part. Infer S-incl when asked is composed from a derived marked role=base and S-quant is already declared.",
+      "check": "S-incl => two exprs; one omits the base total, the other adds it.",
+      "prefer_side": "base_plus_added",
+      "engine_ops": [
+        {
+          "op": "infer_incl_from_base_role"
+        },
+        {
+          "op": "prefer_root_family"
+        },
+        {
+          "op": "scale_incl_to_asked_units"
+        }
+      ],
+      "single_axis_ok": false
+    },
+    {
+      "schema": "S-pct",
+      "fault": "points_vs_relative",
+      "status": "accepted",
+      "rule": "If the query asks how much more in percent, emit both percentage-points and the relative change. Do not apply S-pct when the asked quantity is not a percent.",
+      "check": "S-pct only if the asked expression is a percent; then both (a-b)*100 and ((a-b)/b)*100.",
+      "engine_ops": [
+        {
+          "op": "prefer_root_family"
+        }
+      ],
+      "prefer_side": "points"
+    },
+    {
+      "schema": "S-dist",
+      "fault": "group_vs_each",
+      "status": "accepted",
+      "rule": "If a quantity may be for the group or for each member, emit both. Do not let S-dist replace the asked quantity when inclusion is already open.",
+      "check": "S-dist is a root only when no S-incl is open and the asked quantity is not a percent.",
+      "engine_ops": [
+        {
+          "op": "prefer_root_family"
+        }
+      ]
+    },
+    {
+      "schema": "S-quant",
+      "fault": "once_vs_times_k",
+      "status": "accepted",
+      "rule": "If a quantifier (both, each, Saturday and Sunday, twice) may apply once or k times to a fraction of a weekly/base total, bind that atom both ways: (a) once -- the fraction is a single combined amount added on top of the base; (b) k times -- the base plus the fraction applied separately at each named occasion (base + k x fraction x base). When the wording names two distinct occasions (e.g. 'on both X and Y') rather than describing the fraction as already a single combined total, the k-times reading is usually the licensed one -- do not drop it just because the once reading also compiles. Do not replace the asked root.",
+      "check": "S-quant binds the target atom both ways; when two named occasions share one stated fraction, keep the k=2 (twice) reading even if a once reading also compiles.",
+      "prefer_side": "times_k",
+      "engine_ops": [
+        {
+          "op": "prefer_root_family"
+        }
+      ]
+    },
+    {
+      "schema": "S-rate",
+      "fault": "flat_vs_per",
+      "status": "accepted",
+      "rule": "If the first charge may be a flat block or a per-unit rate, name S-rate. The engine does not expand it; a later checker does.",
+      "check": "S-rate is declared, never expanded here.",
+      "engine_ops": [
+        {
+          "op": "skip_rate"
+        }
+      ]
+    },
+    {
+      "schema": "S-space",
+      "fault": "gap_ignores_width",
+      "status": "accepted",
+      "always": true,
+      "rule": "When objects are placed along a length with a stated per-object width and a stated 'between'/'apart' gap, the fitted-count formula can treat the stated gap as the FULL spacing already used between one object and the next (gap_only: count = length / gap), or as empty space additional to each object's own width (gap_plus_width: count uses length / (gap + width), a fencepost formula that adds width on top of the stated gap). If only one of these two formulas is present, add the other. Tag each reading by which FORMULA it actually computes, not by how the English wording sounds: gap_only if the object's width value never appears added to the gap value anywhere in the arithmetic; gap_plus_width if it does.",
+      "check": "S-space is a root only when the wording gives both a per-object width and a 'between'/'apart' gap figure for objects arranged along one dimension. Verify the tag against the reading's own expression, not against a paraphrase of it.",
+      "source": "error",
+      "note": "Reworded after task_000159 replay: the reviewer tagged the two readings backwards (called the width-inclusive fencepost reading 'gap_only' and the gap-alone reading 'gap_plus_width'), inverting the mechanical close. The abstract semantic description was ambiguous enough to mislabel; the rule now asks for a formula-level check instead.",
+      "prefer_side": "gap_only",
+      "mechanical_ok": false
+    }
+  ]
+}

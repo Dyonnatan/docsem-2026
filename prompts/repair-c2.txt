@@ -1,0 +1,1 @@
+VALIDATOR rejected the program. Emit a new state JSON with two readings whose expressions evaluate, then the official prediction JSON.

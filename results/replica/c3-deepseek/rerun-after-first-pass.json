@@ -1,0 +1,14 @@
+{
+ "note": "Tasks of the C3 DeepSeek replica run that failed to parse in the first pass and were re-run on 2026-09-19. The selection/resolution decomposition presented at the workshop (n=291) was computed before these re-runs; the paper uses C3C on all 300 tasks.",
+ "instance_ids": [
+  "synth_000069",
+  "synth_000093",
+  "synth_000118",
+  "synth_000129",
+  "synth_000137",
+  "synth_000194",
+  "synth_000203",
+  "synth_000260",
+  "synth_000275"
+ ]
+}

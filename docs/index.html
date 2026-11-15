@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DFM at DocSEM 2026: Investigating a Guided-Reasoning Pipeline for Open Models Under a Validation–Test Shift</title>
+<meta name="description" content="Can frozen open-weight models solve document-grounded math better with inference-time guidance alone? A training-free pipeline, a validation–test shift, and a labelled replica of the test regime.">
+<meta property="og:title" content="DFM at DocSEM 2026">
+<meta property="og:description" content="Can frozen open-weight models solve document-grounded math better with inference-time guidance alone? A training-free pipeline, a validation–test shift, and a labelled replica of the test regime.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23273c75'/%3E%3Crect x='7' y='8' width='18' height='3.2' rx='1.6' fill='%23e8f4ff'/%3E%3Crect x='7' y='14.4' width='12' height='3.2' rx='1.6' fill='%23eb6834'/%3E%3Crect x='7' y='20.8' width='15' height='3.2' rx='1.6' fill='%23e8f4ff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #16181d;
+  --ink-2: #3d4048;
+  --ink-3: #6a6d75;
+  --line: #e4e3de;
+  --line-2: #d3d1ca;
+  --paper: #ffffff;
+  --wash: #f6f6f3;
+  --blue: #40739e;
+  --navy: #273c75;
+  --sky: #e8f4ff;
+  --sky-line: #c6dcf2;
+  --sel: #eb6834;
+  --sel-wash: #fdeee7;
+  --res: #4a3aa7;
+  --res-wash: #ecebf8;
+  --neutral: #8f8c84;
+  --pale: #d9d6cd;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: Inter, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --col: 660px;
+  --wide: 980px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 400 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv11", "ss01"; font-variant-numeric: lining-nums;
+}
+a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--navy); }
+code, .mono { font-family: var(--mono); font-size: 0.86em; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 4px; }
+
+/* ---------- navigation ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.88);
+  backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid transparent; transition: border-color .2s;
+}
+.nav.scrolled { border-bottom-color: var(--line); }
+.nav-in { max-width: 1120px; margin: 0 auto; height: 56px; padding: 0 20px;
+  display: flex; align-items: center; gap: 24px; }
+.brand { font-family: var(--serif); font-weight: 600; font-size: 19px; color: var(--ink);
+  text-decoration: none; letter-spacing: -0.01em; white-space: nowrap; }
+.brand span { color: var(--blue); font-weight: 500; }
+.nav-links { display: flex; gap: 22px; margin: 0 auto; }
+.nav-links a { font-size: 13px; color: var(--ink-3); text-decoration: none; }
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-links a.active { box-shadow: 0 2px 0 var(--blue); }
+.nav-cta { display: flex; gap: 6px; }
+.nav-cta a { font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none;
+  padding: 6px 10px; border-radius: 7px; display: inline-flex; align-items: center; gap: 6px; }
+.nav-cta a:hover { background: var(--wash); }
+.nav-cta svg { width: 15px; height: 15px; }
+
+/* ---------- hero ---------- */
+.hero { max-width: 900px; margin: 0 auto; padding: 64px 20px 28px; text-align: center; }
+.venue { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 22px; }
+.hero h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 5.2vw, 52px);
+  line-height: 1.08; letter-spacing: -0.022em; margin: 0 0 18px; color: var(--ink); }
+.hero h1 em { font-style: italic; color: var(--navy); }
+.kicker { font-family: var(--serif); font-style: italic; font-size: clamp(18px, 2.3vw, 22px);
+  color: var(--ink-2); margin: 0 0 22px; }
+.lede { font-size: 18px; line-height: 1.6; color: var(--ink-2); max-width: 640px; margin: 0 auto 26px; }
+.buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+.btn { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 500;
+  text-decoration: none; padding: 9px 15px; border-radius: 9px; border: 1px solid var(--line-2);
+  color: var(--ink); background: #fff; transition: background .15s, border-color .15s; }
+.btn:hover { background: var(--wash); color: var(--ink); }
+.btn.primary { background: var(--navy); border-color: var(--navy); color: #fff; }
+.btn.primary:hover { background: #1d2f5e; color: #fff; }
+.btn svg { width: 16px; height: 16px; }
+.explore { font-size: 13.5px; color: var(--blue); text-decoration: none; display: inline-block; margin: 4px 0 26px; }
+.authors { font-family: var(--serif); font-size: 18px; color: var(--ink); margin: 6px 0 4px; }
+.affil { font-size: 13px; color: var(--ink-3); }
+
+/* stats */
+.stats { max-width: var(--wide); margin: 36px auto 0; padding: 0 20px;
+  display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+.stat { padding: 26px 22px 6px; text-align: center; }
+.stat + .stat { border-left: 1px solid var(--line); }
+.stat .lab { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+.stat .num { font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 4.6vw, 48px);
+  line-height: 1.1; letter-spacing: -0.02em; color: var(--navy); margin: 6px 0 6px; white-space: nowrap; }
+.stat .num .arr { color: var(--neutral); font-weight: 400; font-size: 0.8em; }
+.stat .num.sel { color: var(--sel); }
+.stat .cap { font-size: 14px; color: var(--ink-2); line-height: 1.45; }
+.stat .sub { font-size: 12px; color: var(--ink-3); margin-top: 4px; }
+.stats-note { max-width: 720px; margin: 14px auto 0; padding: 0 20px; text-align: center; font-size: 12.5px; color: var(--ink-3); }
+
+/* ---------- prose ---------- */
+section { padding: 8px 0; }
+.col { max-width: var(--col); margin: 0 auto; padding: 0 20px; }
+.wide { max-width: var(--wide); margin: 0 auto; padding: 0 20px; }
+h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(27px, 3.2vw, 32px); line-height: 1.18;
+  letter-spacing: -0.012em; margin: 64px 0 18px; }
+h3 { font-family: var(--serif); font-weight: 500; font-size: 22px; line-height: 1.3; letter-spacing: -0.01em; margin: 40px 0 10px; }
+.col p { font-size: 18px; line-height: 1.68; color: rgba(22,24,29,0.82); margin: 0 0 20px; }
+.col p b, .col li b { color: var(--ink); font-weight: 600; }
+.divider { max-width: var(--col); margin: 56px auto 0; border: 0; border-top: 1px solid var(--line); }
+
+/* numbered principles */
+.principles { list-style: none; padding: 0; margin: 28px 0 8px; display: grid; gap: 10px; }
+.principles li { display: grid; grid-template-columns: 44px 1fr; gap: 6px 14px; padding: 16px 18px;
+  background: var(--wash); border-radius: 12px; }
+.principles .n { grid-row: span 2; font-family: var(--serif); font-size: 26px; color: var(--blue); line-height: 1; padding-top: 2px; }
+.principles .t { font-weight: 600; font-size: 16px; }
+.principles .d { font-size: 15px; color: var(--ink-2); line-height: 1.5; }
+
+/* ---------- figures ---------- */
+figure { margin: 34px auto 10px; }
+.fig-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.fig-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); }
+.fig-kind { font-size: 12.5px; color: var(--ink-3); }
+.panel { border: 1px solid var(--line); border-radius: 16px; background: #fff; overflow: hidden; }
+figcaption { font-size: 13px; line-height: 1.55; color: var(--ink-3); max-width: 720px; margin: 12px auto 0; text-align: center; }
+
+/* walkthrough controls */
+.controls { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-top: 1px solid var(--line); background: #fcfcfb; }
+.ctl { border: 1px solid var(--line-2); background: #fff; border-radius: 7px; height: 30px; min-width: 30px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 9px;
+  font: 500 12.5px var(--sans); color: var(--ink); cursor: pointer; }
+.ctl:hover { background: var(--wash); }
+.ctl svg { width: 13px; height: 13px; }
+.track { flex: 1; height: 4px; background: var(--line); border-radius: 2px; position: relative; cursor: pointer; }
+.track .fill { position: absolute; inset: 0 auto 0 0; background: var(--blue); border-radius: 2px; transition: width .35s; }
+.track .dots { position: absolute; inset: -6px 0; display: flex; justify-content: space-between; }
+.track .dots i { width: 4px; height: 16px; }
+.count { font-family: var(--mono); font-size: 12px; color: var(--ink-3); min-width: 54px; text-align: right; }
+
+/* figure 1: test document */
+.doc-fig { display: grid; grid-template-columns: 300px 1fr; min-height: 430px; }
+.doc-side { padding: 22px 22px 18px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 14px; background: #fcfcfb; }
+.step-label { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); }
+.step-text { font-family: var(--serif); font-size: 21px; line-height: 1.32; color: var(--ink); min-height: 84px; }
+.step-note { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+.query { border: 1px solid var(--sky-line); background: var(--sky); border-radius: 10px; padding: 10px 12px; font-size: 13.5px; line-height: 1.45; }
+.query .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; color: var(--navy); text-transform: uppercase; display: block; margin-bottom: 3px; }
+.query mark { background: transparent; color: var(--navy); font-weight: 600; }
+.doc-main { padding: 18px 20px; position: relative; }
+.page { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+.blk { height: 18px; border-radius: 4px; background: #efeee9; position: relative; transition: background .35s, opacity .35s, box-shadow .35s; }
+.blk.q { background: #e2e0d8; }
+.state-1 .blk:not(.solo) { opacity: 0.18; }
+.state-1 .blk.solo { background: var(--navy); }
+.state-2 .blk.q, .state-3 .blk.q, .state-4 .blk.q, .state-5 .blk.q, .state-6 .blk.q { background: var(--neutral); }
+.state-3 .blk.decoy, .state-4 .blk.decoy, .state-5 .blk.decoy { background: var(--sel); }
+.state-4 .blk.decoy.pick { box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--sel); }
+.state-5 .blk.target, .state-6 .blk.target { background: var(--navy); box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--navy); }
+.state-6 .blk.decoy { background: var(--sel); opacity: 0.35; }
+.state-6 .blk.q:not(.target):not(.decoy) { opacity: 0.45; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-size: 12px; color: var(--ink-3); }
+.legend i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.excerpt { margin-top: 12px; border-radius: 10px; padding: 11px 13px; font-size: 13.5px; line-height: 1.5; border-left: 4px solid var(--neutral);
+  background: var(--wash); display: none; }
+.excerpt.show { display: block; animation: rise .35s ease-out; }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.query { transition: opacity .35s; }
+.query.dim { opacity: 0.35; }
+.excerpt .who { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 4px; }
+.excerpt.decoy { border-left-color: var(--sel); background: var(--sel-wash); }
+.excerpt.target { border-left-color: var(--navy); background: var(--sky); }
+.excerpt mark { background: rgba(235,104,52,0.22); color: inherit; border-radius: 3px; padding: 0 2px; }
+.excerpt.target mark { background: rgba(64,115,158,0.2); }
+.excerpts { min-height: 0; }
+
+/* compare table */
+.shift { width: 100%; border-collapse: collapse; margin: 22px 0 26px; font-size: 15px; }
+.shift th, .shift td { padding: 10px 8px; border-bottom: 1px solid var(--line); text-align: left; }
+.shift th { font-weight: 600; font-size: 12px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; }
+.shift td.r, .shift th.r { text-align: right; font-variant-numeric: tabular-nums; }
+.shift tr.hl td { background: var(--sky); font-weight: 600; }
+
+/* variants */
+.variants { display: grid; gap: 10px; margin: 26px 0 8px; }
+.variant { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: start; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; }
+.variant .tag { font-family: var(--mono); font-weight: 500; font-size: 13px; text-align: center; color: #fff; background: var(--navy); border-radius: 7px; padding: 5px 0; }
+.variant.card { background: var(--sel-wash); border-color: #f6cdb9; }
+.variant.card .tag { background: var(--sel); }
+.variant .t { font-weight: 600; font-size: 15.5px; margin-bottom: 2px; }
+.variant .d { font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
+
+/* figure 2: derivation */
+.deriv { display: grid; grid-template-columns: 1fr 1fr; min-height: 360px; }
+.deriv-left { padding: 20px 22px; border-right: 1px solid var(--line); background: #fcfcfb; }
+.deriv-right { padding: 18px 20px; font-family: var(--mono); font-size: 12.5px; line-height: 1.65; }
+.passage { font-size: 14px; line-height: 1.55; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-top: 12px; }
+.passage .id { font-family: var(--mono); font-size: 12px; color: var(--blue); margin-right: 4px; }
+.reading { border-radius: 10px; padding: 9px 11px; margin-bottom: 10px; border: 1px solid var(--line); transition: opacity .3s, border-color .3s, background .3s; }
+.reading .rh { display: flex; justify-content: space-between; font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--ink-2); margin-bottom: 4px; }
+.reading .op { color: var(--blue); }
+.reading .val { font-family: var(--sans); font-weight: 600; }
+.ln { display: block; opacity: 0.25; transition: opacity .3s; white-space: pre-wrap; word-break: break-word; }
+.ln.on { opacity: 1; }
+.compiled { margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--line-2); opacity: 0; transition: opacity .3s; }
+.compiled.on { opacity: 1; }
+.reading.win { border-color: var(--navy); background: var(--sky); }
+.reading.lose { opacity: 0.55; }
+
+/* pipeline flow (HTML) */
+.flow { padding: 26px 24px; display: flex; flex-direction: column; align-items: center; gap: 0; }
+.node { width: min(100%, 470px); border-radius: 10px; padding: 10px 14px; text-align: center; font-size: 14.5px; }
+.node small { display: block; font-size: 12.5px; opacity: 0.85; margin-top: 2px; }
+.node.model { background: var(--navy); color: #fff; }
+.node.rule { background: #fff; border: 1px solid #a9a69e; }
+.node.out { background: var(--sky); border: 1px solid var(--blue); color: var(--navy); font-weight: 600; }
+.down { width: 2px; height: 18px; background: #8a877f; position: relative; }
+.down::after { content: ""; position: absolute; left: -4px; bottom: -2px; border: 5px solid transparent; border-top: 6px solid #8a877f; border-bottom: 0; }
+.branch { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; width: min(100%, 640px); margin-top: 0; }
+.branch .col2 { display: flex; flex-direction: column; align-items: center; }
+.branch .bl { font-size: 12px; font-style: italic; color: var(--ink-3); margin: 6px 0 4px; }
+.branch .node { width: 100%; }
+.fork { width: min(100%, 640px); height: 18px; position: relative; }
+.fork::before { content: ""; position: absolute; left: 25%; right: 25%; top: 9px; border-top: 2px solid #8a877f; }
+.fork::after { content: ""; position: absolute; left: calc(50% - 1px); top: 0; height: 10px; border-left: 2px solid #8a877f; }
+.flow-legend { display: flex; gap: 18px; justify-content: center; font-size: 12px; color: var(--ink-3); padding: 0 0 18px; }
+.flow-legend i { display: inline-block; width: 13px; height: 11px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+
+/* motivation */
+.mot { display: grid; gap: 4px; margin: 22px 0 22px; }
+.m { display: grid; grid-template-columns: 170px 1fr; gap: 18px; align-items: baseline; padding: 14px 0; border-top: 1px solid var(--line); }
+.m:last-child { border-bottom: 1px solid var(--line); }
+.mlab { font-family: var(--serif); font-size: 18px; color: var(--navy); }
+.m p { margin: 0 !important; }
+.rq { background: var(--sky); border: 1px solid var(--sky-line); border-radius: 12px; padding: 18px 20px; font-family: var(--serif); font-size: 22px; line-height: 1.4; color: var(--ink); }
+.rq .lab, .io .lab { display: block; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
+.rq b { font-weight: 600; }
+
+/* task */
+.io { display: grid; grid-template-columns: 40px 1fr; gap: 10px 12px; align-items: center; margin: 24px 0 22px; font-size: 14.5px; color: var(--ink-3); }
+.io .lab { margin: 0; }
+.io .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.chip { border: 1px solid var(--blue); border-radius: 8px; padding: 4px 11px; color: var(--ink); background: #fff; }
+.chip.out { background: var(--sky); }
+
+/* reviewer label in figure 2 */
+.rlabel { margin-top: 6px; font-family: var(--sans); font-size: 12px; color: var(--res); background: var(--res-wash); border-radius: 6px; padding: 3px 8px; display: inline-block; opacity: 0; transition: opacity .3s; }
+.rlabel.on { opacity: 1; }
+
+/* models tested */
+.mt-wrap { padding: 10px 18px 14px; overflow-x: auto; }
+.mt { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 620px; }
+.mt th { font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line-2); }
+.mt td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
+.mt .r, .mt td.d { text-align: right; font-variant-numeric: tabular-nums; }
+.mt td.d { font-family: var(--mono); font-size: 12.5px; font-weight: 500; width: 56px; }
+.mt td.why { color: var(--ink-3); font-size: 13px; }
+.mt .dcell { width: 34%; }
+.mt tr.grp td { border-bottom: 0; padding: 14px 6px 3px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+.mt tr.ref td { background: var(--sky); font-weight: 600; }
+.mt tr.kept td { font-weight: 600; color: var(--navy); }
+.mt tr.closed td { color: var(--ink-3); }
+.dbar { position: relative; height: 14px; }
+.dbar::before { content: ""; position: absolute; left: 60%; top: -3px; bottom: -3px; border-left: 1.5px solid var(--ink); }
+.dbar i { position: absolute; top: 2px; height: 10px; border-radius: 2px; background: var(--neutral); }
+.mt tr.ref .dbar i { background: var(--ink); }
+.mt tr.kept .dbar i { background: var(--blue); }
+.mt tr.closed .dbar i { background: none; border: 1.5px dashed var(--ink-3); top: 1px; }
+
+/* who decided */
+.who { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0 22px; }
+.who > div { background: var(--wash); border-radius: 12px; padding: 14px 14px 12px; }
+.who > div:first-child { background: var(--sky); }
+.who .big { font-family: var(--serif); font-size: 32px; line-height: 1; color: var(--navy); }
+.who .d { font-size: 13px; color: var(--ink-2); line-height: 1.4; margin-top: 6px; }
+
+/* error tiles */
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 26px; }
+.tile { background: var(--wash); border-radius: 12px; padding: 16px 16px 14px; }
+.tile .big { font-family: var(--serif); font-size: 28px; line-height: 1.05; color: var(--navy); }
+.tile.test .big { color: var(--ink); }
+.tile .d { font-size: 13px; color: var(--ink-2); line-height: 1.45; margin-top: 6px; }
+
+/* result annotations */
+.ann { display: grid; gap: 14px; margin: 26px 0 8px; }
+.ann .a { border-left: 3px solid var(--neutral); padding: 2px 0 2px 14px; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.ann .a b { display: block; color: var(--ink); font-weight: 600; font-size: 16px; }
+.ann .a.card { border-left-color: var(--sel); }
+.ann .a.ref { border-left: 3px dashed var(--navy); }
+
+/* facts */
+.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 26px 0 10px; }
+.fact { background: var(--wash); border-radius: 12px; padding: 16px 18px; }
+.fact .big { font-family: var(--serif); font-size: 30px; line-height: 1.1; color: var(--navy); }
+.fact .big span { font-size: 18px; color: var(--ink-3); }
+.fact .d { font-size: 14px; color: var(--ink-2); line-height: 1.5; margin-top: 6px; }
+
+/* results chart */
+.chart-wrap { padding: 18px 18px 8px; }
+.seg { display: inline-flex; border: 1px solid var(--line-2); border-radius: 9px; padding: 3px; gap: 2px; background: #fff; }
+.seg button { border: 0; background: transparent; font: 500 13px var(--sans); color: var(--ink-3); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--navy); color: #fff; }
+.chart-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 0 4px 6px; }
+.chart-top .hint { font-size: 12.5px; color: var(--ink-3); }
+#bars { width: 100%; height: auto; display: block; }
+#bars text { font-family: var(--sans); }
+#bars .bar { transition: y .45s cubic-bezier(.2,.7,.2,1), height .45s cubic-bezier(.2,.7,.2,1); }
+#bars .lbl { transition: y .45s cubic-bezier(.2,.7,.2,1); }
+.tests { width: 100%; border-collapse: collapse; font-size: 14px; margin: 18px 0 8px; }
+.tests th, .tests td { padding: 8px 6px; border-bottom: 1px solid var(--line); text-align: left; }
+.tests th { font-size: 11.5px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.tests td.r { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--mono); font-size: 12.5px; }
+.tests tr.key td { background: var(--sel-wash); }
+
+/* decomposition */
+.decomp { margin: 24px 0 8px; }
+.decomp .barline { display: flex; height: 48px; border-radius: 10px; overflow: hidden; }
+.decomp .barline div { display: flex; align-items: center; padding-left: 12px; color: #fff; font-weight: 600; font-size: 15px; white-space: nowrap; }
+.decomp .k { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 10px; font-size: 13px; color: var(--ink-2); }
+.decomp .k i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.callout { border-left: 3px solid var(--blue); background: var(--sky); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 22px 0; }
+.callout .lab { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); margin-bottom: 4px; }
+.callout p { margin: 0 !important; font-size: 16px !important; }
+
+/* findings */
+.findings { list-style: none; counter-reset: f; padding: 0; margin: 24px 0; }
+.findings li { counter-increment: f; display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 16px 0; border-top: 1px solid var(--line); }
+.findings li:last-child { border-bottom: 1px solid var(--line); }
+.findings li::before { content: counter(f, decimal-leading-zero); font-family: var(--mono); font-size: 13px; color: var(--blue); padding-top: 3px; }
+.findings .t { font-family: var(--serif); font-size: 20px; line-height: 1.3; margin-bottom: 4px; }
+.findings .d { font-size: 15.5px; color: var(--ink-2); line-height: 1.55; }
+.limits { background: var(--wash); border-radius: 12px; padding: 16px 20px; font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+.limits b { color: var(--ink); }
+
+/* code */
+pre { margin: 18px 0; background: #14161b; color: #e7e7e3; border-radius: 12px; padding: 16px 18px; overflow-x: auto;
+  font: 13px/1.6 var(--mono); position: relative; }
+pre .c { color: #8b8f99; }
+.copy { position: absolute; top: 10px; right: 10px; border: 1px solid #3a3d45; background: #1f2229; color: #cfd0cc; border-radius: 6px;
+  font: 500 11.5px var(--sans); padding: 4px 9px; cursor: pointer; }
+.copy:hover { background: #2a2e36; }
+
+/* venue band */
+.band { margin-top: 80px; background: var(--blue); color: #f3f6fa; position: relative; overflow: hidden; border-top: 3px solid var(--navy); }
+.band img { position: absolute; left: 0; bottom: 0; width: 1100px; max-width: none; opacity: 0.14; pointer-events: none; }
+.band-in { position: relative; max-width: var(--wide); margin: 0 auto; padding: 38px 20px 34px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
+.band .t { font-family: var(--serif); font-size: 22px; line-height: 1.3; }
+.band .s { font-size: 13.5px; opacity: 0.9; margin-top: 4px; }
+.band a { color: #fff; }
+.band .btn { background: transparent; color: #fff; border-color: rgba(255,255,255,0.45); }
+.band .btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+footer { max-width: var(--wide); margin: 0 auto; padding: 22px 20px 40px; font-size: 12.5px; color: var(--ink-3); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .nav-in { justify-content: space-between; }
+  .doc-fig, .deriv { grid-template-columns: 1fr; }
+  .doc-side, .deriv-left { border-right: 0; border-bottom: 1px solid var(--line); }
+  .step-text { min-height: 0; }
+}
+@media (max-width: 640px) {
+  .stats { grid-template-columns: 1fr; }
+  .m { grid-template-columns: 1fr; gap: 4px; }
+  .who { grid-template-columns: 1fr 1fr; }
+  .tiles { grid-template-columns: 1fr; }
+  .stat + .stat { border-left: 0; border-top: 1px solid var(--line); }
+  .facts { grid-template-columns: 1fr; }
+  .branch { grid-template-columns: 1fr; }
+  .fork { display: none; }
+  .nav-cta a span { display: none; }
+  .col p { font-size: 17px; }
+  .page { gap: 4px; }
+  .blk { height: 11px; }
+  .controls { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">DFM <span>· DocSEM 2026</span></a>
+    <div class="nav-links">
+      <a href="#motivation">Motivation</a>
+      <a href="#task">Task</a>
+      <a href="#method">Method</a>
+      <a href="#pipeline">Pipeline</a>
+      <a href="#errors">Errors</a>
+      <a href="#results">Results</a>
+      <a href="#takeaways">Takeaways</a>
+      <a href="#reproduce">Reproduce</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://github.com/Dyonnatan/docsem-2026" aria-label="Code on GitHub">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>Code</span></a>
+      <a href="assets/poster.pdf" aria-label="Poster PDF">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 5h6M5 8h6M5 11h3.5"/></svg><span>Poster</span></a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="venue">DocInsights 2026 · EMNLP 2026 · Budapest · Poster DocInsights-48</div>
+  <h1>Investigating a Guided-Reasoning Pipeline for Open Models Under a <em>Validation–Test Shift</em></h1>
+  <p class="kicker">DFM at DocSEM 2026</p>
+  <p class="lede">Open-weight models are cheaper to run and easier to inspect than closed ones, but they are usually evaluated as they are: one prompt, one answer. We keep the weights frozen, change only what surrounds the model call, and ask whether that alone solves document-grounded math better.</p>
+  <div class="buttons">
+    <a class="btn primary" href="https://github.com/Dyonnatan/docsem-2026/tree/main/paper">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 1.5h5.5L13 5v9.5H4z"/><path d="M9.5 1.5V5H13"/></svg>Paper</a>
+    <a class="btn" href="https://github.com/Dyonnatan/docsem-2026">
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Code</a>
+    <a class="btn" href="slides/">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="9" rx="1.2"/><path d="M8 11.5v2.5M5.5 14h5"/></svg>Talk slides</a>
+    <a class="btn" href="assets/poster.pdf">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 5h6M5 8h6M5 11h3.5"/></svg>Poster</a>
+    <a class="btn" href="https://github.com/Dyonnatan/docsem-2026/tree/main/data/replica">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><ellipse cx="8" cy="3.5" rx="5.5" ry="2"/><path d="M2.5 3.5v9c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2v-9M2.5 8c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2"/></svg>Replica</a>
+  </div>
+  <a class="explore" href="#task">See a test document ↓</a>
+  <div class="authors">Dyonnatan Ferreira Maia</div>
+  <div class="affil">DocSEM 2026 shared task, Task 1 · system paper (non-archival)</div>
+</header>
+
+<div class="stats" role="list">
+  <div class="stat" role="listitem">
+    <div class="lab">Same system</div>
+    <div class="num">88.5 <span class="arr">→</span> 51.4</div>
+    <div class="cap">answer accuracy (%), validation → test, first attempt</div>
+  </div>
+  <div class="stat" role="listitem">
+    <div class="lab">On the replica</div>
+    <div class="num sel">≈7×</div>
+    <div class="cap">more errors from citing the wrong passage than from computing the wrong number</div>
+    <div class="sub">54.0% against 7.3% of tasks</div>
+  </div>
+  <div class="stat" role="listitem">
+    <div class="lab">One paragraph</div>
+    <div class="num">68.3 / 77.7</div>
+    <div class="cap">answer accuracy with selection guidance, from 46.3 / 64.4 with direct prompting</div>
+    <div class="sub">DeepSeek-V4-Flash / GLM-5.3-Flash</div>
+  </div>
+</div>
+<p class="stats-note">Replica numbers are single runs on 300 tasks (95% intervals ±5–6 points). The replica and the selection guidance were developed after the competition, for analysis only.</p>
+
+<section id="motivation">
+<div class="col">
+  <h2>Motivation</h2>
+  <div class="mot">
+    <div class="m"><span class="mlab">Open-weight models</span><p>Cheaper to run and easier to inspect than closed models, but usually evaluated <b>as they are</b>: one prompt, one answer.</p></div>
+    <div class="m"><span class="mlab">Usual routes</span><p>Strong results on tasks like this one come from <b>closed models</b>, which can change or be retired, or from <b>further training</b> with reinforcement learning or fine-tuning, which needs GPUs and labelled data.</p></div>
+    <div class="m"><span class="mlab">A third route</span><p><b>Frozen weights.</b> Following the growing use of prompt engineering, agents and harnesses, only what surrounds the model call changes: what the model writes, code for the arithmetic, rules on the output, and agent-like roles.</p></div>
+  </div>
+  <div class="rq"><span class="lab">Research question</span>Can frozen open-weight models solve document-grounded math better with <b>inference-time guidance alone</b>?</div>
+</div>
+</section>
+
+<section id="task">
+<div class="col">
+  <h2>Task and test-set shift</h2>
+  <div class="io">
+    <span class="lab">in</span><div class="row"><span class="chip">rendered PDF, no text layer</span>+<span class="chip">paraphrased query</span></div>
+    <span class="lab">out</span><div class="row"><span class="chip out">numeric answer</span>+<span class="chip out">supporting block ID</span></div>
+  </div>
+  <p>The system reads the document, finds the passage the query refers to, and returns the numeric answer with the ID of the block that supports it. The problems are semantic variants of grade-school math word problems. Ranking uses <b>joint exact accuracy</b>: answer and evidence must both be exactly right.</p>
+  <p>Validation and test turned out to be quite different tasks.</p>
+  <table class="shift">
+    <thead><tr><th></th><th class="r">validation</th><th class="r">test</th></tr></thead>
+    <tbody>
+      <tr><td>characters per document</td><td class="r">~5k</td><td class="r">~43k</td></tr>
+      <tr class="hl"><td>quantitative problems per document</td><td class="r">1</td><td class="r">23.6</td></tr>
+      <tr><td>decoys that repeat the query's words</td><td class="r">no</td><td class="r">yes</td></tr>
+    </tbody>
+  </table>
+  <p>Decoys repeat the words of the query inside a counting template, while the real target mentions its subject only once, in ordinary prose.</p>
+</div>
+<!-- Figure 1 -->
+<div class="wide" id="walkthrough">
+<figure>
+  <div class="fig-head"><span class="fig-num">01 / A test document</span><span class="fig-kind">Real excerpts from test task_010141, schematic layout</span></div>
+  <div class="panel">
+    <div class="doc-fig">
+      <div class="doc-side">
+        <div class="query" id="w-query"><span class="k">Query</span>“…use the relevant quantitative passage in this document to determine the outcome concerning <mark>opal and spends</mark>.”</div>
+        <div class="step-label" id="w-label">Step 1</div>
+        <div class="step-text" id="w-text"></div>
+        <div class="step-note" id="w-note"></div>
+      </div>
+      <div class="doc-main state-1" id="w-doc">
+        <div class="page" id="w-page" aria-hidden="true"></div>
+        <div class="legend">
+          <span><i style="background:#efeee9"></i>prose</span>
+          <span><i style="background:var(--neutral)"></i>a solvable problem</span>
+          <span><i style="background:var(--sel)"></i>decoy</span>
+          <span><i style="background:var(--navy)"></i>target</span>
+        </div>
+        <div class="excerpts">
+          <div class="excerpt decoy" id="w-decoy">
+            <div class="who">Decoy · RAC-1DC · one of four in this document</div>
+            “In a separate <mark>concerning and opal and spends</mark> record, Given counted (10 + 13) items in the first review and 26 in the second review. How many items did Given count altogether?”
+          </div>
+          <div class="excerpt target" id="w-target">
+            <div class="who">Target · 92J822</div>
+            “Given that <mark>Opal spends</mark> however many minutes separate 11.56pm and 12.11am on each crossword puzzle and completes (2 + 3) of them, … how many total minutes does she spend solving puzzles?”
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="controls" data-walk="w">
+      <button class="ctl" data-act="play" aria-label="Play or pause"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7-4.5z"/></svg><span>Play</span></button>
+      <button class="ctl" data-act="prev" aria-label="Previous step"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 2.5 4 6l3.5 3.5"/></svg></button>
+      <button class="ctl" data-act="next" aria-label="Next step"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4.5 2.5 8 6 4.5 9.5"/></svg></button>
+      <div class="track" data-act="seek"><div class="fill"></div></div>
+      <div class="count">01 / 06</div>
+    </div>
+  </div>
+  <figcaption>The block layout is schematic; the query and both excerpts are quoted from the test document. Test documents average 43k characters and 23.6 quantitative problems; validation documents average 5k characters and pose one.</figcaption>
+</figure>
+</div>
+
+<div class="col">
+  <p>So on test, the system must first <b>select</b> the passage and only then <b>resolve</b> it, and keyword overlap often points to the wrong block. Everything tuned during development addressed resolution. Neither training nor validation data can measure selection, because each of their documents holds a single candidate.</p>
+</div>
+</section>
+
+<section id="method">
+<div class="col">
+  <h2>Method: pipeline variants</h2>
+  <p>The model stays frozen; only what surrounds the call changes. Each variant changes <b>one design decision</b> relative to the previous one and is compared with it by exact McNemar tests on paired items. Stage 1, which transcribes each rendered page to markdown with MinerU2.5-Pro, ran once and is shared by all variants.</p>
+  <div class="variants">
+    <div class="variant"><span class="tag">A0</span><div><div class="t">Direct</div><div class="d">Query and document in, answer and evidence out.</div></div></div>
+    <div class="variant"><span class="tag">C2</span><div><div class="t">Rival readings</div><div class="d">Two competing readings of the passage, each an arithmetic expression that Python evaluates. Validators reject a reading that uses fewer of the passage's numbers than its rival (V2), misreads a tiered rate (V4), or fails to evaluate (V5).</div></div></div>
+    <div class="variant"><span class="tag">C3</span><div><div class="t">Compiled steps</div><div class="d">Each reading is a short list of steps in a small domain-specific language (DSL): observe a quantity (<code>obs</code>), state an assumption (<code>assume</code>), compute (<code>therefore</code>) and <code>return</code>. The model reads; the code computes. Reimplementations of PAL, SatLM and ArgLLM in the same harness did not outperform it in an exploratory test on hard cases.</div></div></div>
+    <div class="variant"><span class="tag">C3C</span><div><div class="t">Notebook and reviewer</div><div class="d">A notebook, a kind of contextual memory with rules for recurring ambiguities, and a reviewer that labels each surviving reading with a side from a closed set. A fixed rule picks a reading when the labels separate them. The submitted system.</div></div></div>
+  </div>
+</div>
+
+<!-- Figure 2 -->
+<div class="wide">
+<figure>
+  <div class="fig-head"><span class="fig-num">02 / Inside C3</span><span class="fig-kind">An abridged trace from a dev200 task</span></div>
+  <div class="panel">
+    <div class="deriv">
+      <div class="deriv-left">
+        <div class="step-label" id="d-label">Step 1</div>
+        <div class="step-text" id="d-text"></div>
+        <div class="step-note" id="d-note"></div>
+        <div class="passage"><span class="id">b10:</span>What percentage of a 10-foot shark's length is taken up by two remoras, each measuring 6 inches in length?</div>
+      </div>
+      <div class="deriv-right" id="d-right">
+        <div class="reading" id="r1">
+          <div class="rh"><span>r1</span><span class="val" id="r1v"></span></div>
+          <span class="ln" data-s="2"><span class="op">obs</span>     remora_each_in = 6</span>
+          <span class="ln" data-s="2"><span class="op">obs</span>     remora_count = 2</span>
+          <span class="ln" data-s="2"><span class="op">assume</span>  “each of the two remoras measures 6 inches”</span>
+          <span class="ln" data-s="2"><span class="op">therefore</span> total_in = remora_each_in * remora_count</span>
+          <span class="ln" data-s="2"><span class="op">therefore</span> pct = total_in / (10 * 12) * 100</span>
+          <span class="ln" data-s="2"><span class="op">return</span>  pct</span>
+          <div class="compiled" data-s="4">→ ((6 * 2) / (10 * 12)) * 100 = <b>10.0</b></div>
+          <div class="rlabel" data-s="5">reviewer label · S-quant: <b>times_k</b></div>
+        </div>
+        <div class="reading" id="r2">
+          <div class="rh"><span>r2</span><span class="val" id="r2v"></span></div>
+          <span class="ln" data-s="3"><span class="op">obs</span>     pair_length_in = 6</span>
+          <span class="ln" data-s="3"><span class="op">assume</span>  “the pair together measures 6 inches”</span>
+          <span class="ln" data-s="3"><span class="op">therefore</span> pct = pair_length_in / (10 * 12) * 100</span>
+          <span class="ln" data-s="3"><span class="op">return</span>  pct</span>
+          <div class="compiled" data-s="4">→ (6 / (10 * 12)) * 100 = <b>5.0</b></div>
+          <div class="rlabel" data-s="5">reviewer label · S-quant: <b>once</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="controls" data-walk="d">
+      <button class="ctl" data-act="play" aria-label="Play or pause"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7-4.5z"/></svg><span>Play</span></button>
+      <button class="ctl" data-act="prev" aria-label="Previous step"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 2.5 4 6l3.5 3.5"/></svg></button>
+      <button class="ctl" data-act="next" aria-label="Next step"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4.5 2.5 8 6 4.5 9.5"/></svg></button>
+      <div class="track" data-act="seek"><div class="fill"></div></div>
+      <div class="count">01 / 06</div>
+    </div>
+  </div>
+  <figcaption>Steps are abridged. Both readings compile and evaluate, so arithmetic alone cannot decide between them: the ambiguity is lexical (“two remoras, <i>each</i> measuring 6 inches”). The answer submitted is always the compiled value of the chosen reading.</figcaption>
+</figure>
+</div>
+
+<div class="col">
+  <h3 id="models">Other models tested</h3>
+  <p>The variants were explored with 14 open-weight models. Only two reached the main results: <b>DeepSeek-V4-Flash</b>, chosen for the submitted pipeline, and <b>GLM-5.3-Flash</b>, added for the replica. Each model is compared with DeepSeek-V4-Flash on the same tasks; the metric changes by block.</p>
+</div>
+<div class="wide">
+<figure>
+  <div class="fig-head"><span class="fig-num">03 / Models tested</span><span class="fig-kind">Exploratory; Δ in points against DeepSeek-V4-Flash</span></div>
+  <div class="panel">
+    <div class="mt-wrap">
+    <table class="mt">
+      <thead><tr><th>model</th><th class="dcell">Δ vs DeepSeek-V4-Flash</th><th class="r">pp</th><th>why not used</th></tr></thead>
+      <tbody>
+      <tr class="ref"><td>DeepSeek-V4-Flash</td><td class="dcell"><div class="dbar"><i style="left:60.0%;width:0.6%"></i></div></td><td class="d">0</td><td class="why">main model (reference)</td></tr>
+      <tr class="grp"><td colspan="4">hard-18 · gold value among the C3 readings</td></tr>
+      <tr><td>Kimi-K2.6</td><td class="dcell"><div class="dbar"><i style="left:48.8%;width:11.2%"></i></div></td><td class="d">−5.6</td><td class="why">19× the cost, 6 of 18 outputs unparsable</td></tr>
+      <tr><td>Gemma-4-31B</td><td class="dcell"><div class="dbar"><i style="left:48.8%;width:11.2%"></i></div></td><td class="d">−5.6</td><td class="why">slowest (median 136 s per task)</td></tr>
+      <tr><td>Qwen3.8-Flash</td><td class="dcell"><div class="dbar"><i style="left:26.6%;width:33.4%"></i></div></td><td class="d">−16.7</td><td class="why">C3 added nothing over C2</td></tr>
+      <tr><td>MiniMax-M3</td><td class="dcell"><div class="dbar"><i style="left:4.4%;width:55.6%"></i></div></td><td class="d">−27.8</td><td class="why">C3 made it worse than C2</td></tr>
+      <tr><td>DeepSeek-V4-Pro</td><td class="dcell"><div class="dbar"><i style="left:4.4%;width:55.6%"></i></div></td><td class="d">−27.8</td><td class="why">lowest coverage, despite being the larger model</td></tr>
+      <tr class="grp"><td colspan="4">26-task slice · exact answers with C2*</td></tr>
+      <tr><td>Qwen3.8-Max</td><td class="dcell"><div class="dbar"><i style="left:6.2%;width:53.8%"></i></div></td><td class="d">−26.9</td><td class="why">20 of 26 C2 calls failed</td></tr>
+      <tr><td>Kimi-K2.7-Code</td><td class="dcell"><div class="dbar"><i style="left:37.0%;width:23.0%"></i></div></td><td class="d">−11.5</td><td class="why">weakest direct-prompting baseline</td></tr>
+      <tr><td>Laguna-S-2.1</td><td class="dcell"><div class="dbar"><i style="left:21.6%;width:38.4%"></i></div></td><td class="d">−19.2</td><td class="why">weak with C2 and with direct prompting</td></tr>
+      <tr><td>Muse-Glimmer-30B</td><td class="dcell"><div class="dbar"><i style="left:21.6%;width:38.4%"></i></div></td><td class="d">−19.2</td><td class="why">same as Laguna-S-2.1 at 5× its cost</td></tr>
+      <tr class="grp"><td colspan="4">dev200 · answer accuracy as the C3C analyst</td></tr>
+      <tr><td>Nemotron-3-Ultra</td><td class="dcell"><div class="dbar"><i style="left:54.0%;width:6.0%"></i></div></td><td class="d">−3.0</td><td class="why">timeouts; kept to re-solve low-confidence tasks</td></tr>
+      <tr><td>DeepSeek-R1</td><td class="dcell"><div class="dbar"><i style="left:55.0%;width:5.0%"></i></div></td><td class="d">−2.5</td><td class="why">10× the cost; kept for the evidence call and fallback</td></tr>
+      <tr><td>MiMo-V2.5-Pro</td><td class="dcell"><div class="dbar"><i style="left:60.0%;width:0.6%"></i></div></td><td class="d">0.0</td><td class="why">same accuracy at 4.6× the cost</td></tr>
+      <tr class="grp"><td colspan="4">replica · answer accuracy, direct prompting</td></tr>
+      <tr class="kept"><td>GLM-5.3-Flash</td><td class="dcell"><div class="dbar"><i style="left:60.0%;width:36.2%"></i></div></td><td class="d">+18.1</td><td class="why">kept: strongest open baseline</td></tr>
+      <tr class="grp"><td colspan="4">closed references, outside the open-model scope</td></tr>
+      <tr class="closed"><td>GPT-5.6 Sol</td><td class="dcell"><div class="dbar"><i style="left:52.0%;width:8.0%"></i></div></td><td class="d">−4.0</td><td class="why">closed</td></tr>
+      <tr class="closed"><td>Claude Sonnet 5</td><td class="dcell"><div class="dbar"><i style="left:60.0%;width:36.6%"></i></div></td><td class="d">+18.3</td><td class="why">closed agent (Claude Code)</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <figcaption>*The slice was built from DeepSeek-V4-Flash's own results and favours it. Appendix D of the paper gives the full reasons for each model.</figcaption>
+</figure>
+</div>
+</section>
+
+<section id="pipeline">
+<div class="col">
+  <h2>The submitted pipeline</h2>
+  <p>A vision model transcribes each PDF once, and the analyst model writes two rival readings as DSL steps. Code compiles and evaluates them, and the validators filter them. If one reading survives, it is committed. If several survive, a reviewer labels them and a notebook rule picks one when the labels separate them; otherwise the analyst's preference is kept. Finally, the evidence is narrowed to the block the committed reading used.</p>
+</div>
+<div class="wide">
+<figure>
+  <div class="panel">
+    <div class="flow">
+      <div class="node model"><b>Page transcription</b><small>MinerU2.5-Pro, once per document: rendered PDF → markdown with block ids</small></div>
+      <div class="down"></div>
+      <div class="node model"><b>Analyst</b> (DeepSeek-V4-Flash)<small>query + document → two rival readings as DSL steps</small></div>
+      <div class="down"></div>
+      <div class="node rule"><b>Compile and evaluate</b><small>steps → expression → value</small></div>
+      <div class="down"></div>
+      <div class="node rule"><b>Validate</b><small>V5 evaluates · V4 tiered rates · V2 relative coverage</small></div>
+      <div class="fork"></div>
+      <div class="branch">
+        <div class="col2"><div class="down"></div><div class="bl">one survives</div><div class="node rule"><b>Commit the survivor</b><small>no further model call</small></div></div>
+        <div class="col2"><div class="down"></div><div class="bl">several survive</div><div class="node model"><b>Reviewer</b><small>labels each reading: schema and side</small></div><div class="down"></div><div class="node rule"><b>Decide</b><small>notebook rule if the labels separate; else the analyst's choice</small></div></div>
+      </div>
+      <div class="down" style="margin-top:10px"></div>
+      <div class="node rule"><b>Scope evidence</b><small>to the committed reading (test submission: multi-block citations 455 → 66)</small></div>
+      <div class="down"></div>
+      <div class="node out">numeric answer + block id</div>
+    </div>
+    <div class="flow-legend"><span><i style="background:var(--navy)"></i>model call</span><span><i style="background:#fff;border:1px solid #a9a69e"></i>deterministic code</span></div>
+  </div>
+</figure>
+</div>
+<div class="col">
+  <h3>Who decided each answer</h3>
+  <p>The structure decides less than its design suggests. On the replica, C3C's 300 answers were settled as follows:</p>
+  <div class="who">
+    <div><div class="big">274</div><div class="d">analyst's own preference</div></div>
+    <div><div class="big">17</div><div class="d">notebook rule</div></div>
+    <div><div class="big">6</div><div class="d">validators alone</div></div>
+    <div><div class="big">3</div><div class="d">fallback</div></div>
+  </div>
+  <p>The structure constrains and records the model's reasoning, but on the test regime the final choice is almost always the model's.</p>
+</div>
+</section>
+
+<section id="errors">
+<div class="col">
+  <h2>Error analysis</h2>
+  <div class="tiles">
+    <div class="tile"><div class="big">88.5–89.9%</div><div class="d">validation answer accuracy, exploration phase</div></div>
+    <div class="tile test"><div class="big">51.4%</div><div class="d">test answer accuracy, first attempt</div></div>
+    <div class="tile"><div class="big">49.0%</div><div class="d">same system on the test-like replica</div></div>
+  </div>
+  <p>Test labels are hidden, and training and validation cannot measure selection. After the competition deadline we therefore built a labelled <b>replica</b> of the test regime: 300 training problems, whose answer and evidence are public, re-embedded into documents generated from the test template. Each document carries about 22 competing problems, decoys that repeat the query's words, printed values of other cases, and opaque block identifiers. Its answer accuracy is within three points of the first test submission.</p>
+  <div class="facts">
+    <div class="fact"><div class="big">≤ chance</div><div class="d">Before any model ran, a validity gate checked that keyword matching finds the target no better than a random choice among candidates, as on the real test.</div></div>
+    <div class="fact"><div class="big">easier</div><div class="d">than test: 36k against 43k characters per document and no decimal answers; 65 of its 300 targets come from the development corpus.</div></div>
+  </div>
+  <h3>Where the errors are</h3>
+  <p>On the replica, we split the errors into <b style="color:var(--sel)">selection errors</b>, where the cited block is not the target, and <b style="color:var(--res)">resolution errors</b>, where the target is cited but the number is wrong.</p>
+  <div class="decomp" aria-label="Outcomes on the replica">
+    <div class="barline">
+      <div style="width:54.0%;background:var(--sel)">54.0%</div>
+      <div style="width:7.3%;background:var(--res);padding-left:0;justify-content:center"></div>
+      <div style="width:38.7%;background:var(--pale);color:var(--ink)">38.7%</div>
+    </div>
+    <div class="k"><span><i style="background:var(--sel)"></i>selection error (162)</span><span><i style="background:var(--res)"></i>resolution error (22, 7.3%)</span><span><i style="background:var(--pale)"></i>correct (116)</span></div>
+  </div>
+  <div class="callout"><div class="lab">≈7× more selection than resolution errors</div><p>Validators, the DSL and the notebook were designed for resolution. If they leave the cited passage unchanged, they can fix at most 7.3% of tasks.</p></div>
+  <p style="font-size:14px;color:var(--ink-3)">The poster and the talk presented at the workshop showed an earlier version of this analysis (52.9% and 7.6% on 291 tasks, from the C3 outputs before nine parse failures were re-run). The paper, this page and the poster and slides linked here use the submitted system on all 300 tasks.</p>
+</div>
+</section>
+
+<section id="results">
+<div class="col">
+  <h2>Results on the replica</h2>
+  <p>The structure aimed at resolution adds little. The largest gain came from a task-specific instruction: one paragraph added to the analyst's prompt after the deadline, written by inspecting unlabelled test documents. It describes the decoy template and asks the model to match the query to what a problem is about, not to repeated words.</p>
+</div>
+<div class="wide">
+<figure>
+  <div class="fig-head"><span class="fig-num">04 / Replica accuracy</span><span class="fig-kind">300 tasks per arm (295 for GLM A0), with 95% Wilson intervals</span></div>
+  <div class="panel">
+    <div class="chart-wrap">
+      <div class="chart-top">
+        <div class="seg" role="group" aria-label="Metric">
+          <button type="button" data-metric="answer" aria-pressed="true">Answer</button>
+          <button type="button" data-metric="evidence" aria-pressed="false">Evidence</button>
+          <button type="button" data-metric="joint" aria-pressed="false">Joint</button>
+        </div>
+        <div class="hint" id="metric-hint">Exact numeric answer.</div>
+      </div>
+      <svg id="bars" viewBox="0 0 900 380" role="img" aria-label="Replica accuracy by variant and model"></svg>
+    </div>
+  </div>
+  <figcaption>Grey: structural variants. Orange: C3 with the selection card. Dashed: a closed coding agent (Claude Code with Claude Sonnet 5), run once and not under controlled conditions.</figcaption>
+</figure>
+</div>
+<div class="col">
+  <div class="ann">
+    <div class="a"><b>C2 vs A0: +6.7 / +4.5 points</b>p = .024 / .036, not significant after Bonferroni correction.</div>
+    <div class="a"><b>C3 vs C2: never better</b>Worse in two of the four paired tests; the notebook leaves DeepSeek at 147 against 148 correct answers.</div>
+    <div class="a card"><b>+card vs C3: +19.0 / +15.7 points</b>p &lt; 10<sup>−7</sup>. With the card, answer accuracy reaches 68.3% with DeepSeek and 77.7% with GLM.</div>
+    <div class="a ref"><b>Closed agent, not controlled</b>Claude Code with Sonnet 5 reaches 82.0%. The answer gap to GLM shrinks from 17.6 to 4.3 points (27:14, p = .06); on joint accuracy 15.0 points remain, mostly in the evidence (94.0% against 80.3%).</div>
+  </div>
+  <table class="tests">
+    <thead><tr><th>Comparison (answer)</th><th class="r">DeepSeek</th><th class="r">GLM</th></tr></thead>
+    <tbody>
+      <tr><td>C2 vs A0</td><td class="r">46:26, p=.024</td><td class="r">34:18, p=.036</td></tr>
+      <tr><td>C3 vs C2</td><td class="r">28:39, p=.22</td><td class="r">17:38, p=.007</td></tr>
+      <tr class="key"><td>card vs C3</td><td class="r">73:16, p=7×10⁻¹⁰</td><td class="r">61:14, p=4×10⁻⁸</td></tr>
+      <tr><td>card vs A0</td><td class="r">82:16, p=7×10⁻¹²</td><td class="r">59:17, p=1×10⁻⁶</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:14px;color:var(--ink-3)">Exact McNemar tests on paired items; “a:b” counts the items only the first or only the second variant gets right. A Bonferroni correction over the paper's 16 replica tests sets the threshold at p ≈ 0.003.</p>
+</div>
+</section>
+
+<section id="takeaways">
+<div class="col">
+  <h2>Takeaways</h2>
+  <ol class="findings">
+    <li><div><div class="t">Target guidance at where the errors are.</div><div class="d">A short, targeted instruction can matter more than an elaborate reasoning structure. One paragraph on passage selection gave the largest gain of all variants.</div></div></li>
+    <li><div><div class="t">Structure makes reasoning inspectable, not necessarily better.</div><div class="d">Rules rarely override the model's own choice: the analyst's preference decided 274 of 300 replica answers. The trace did let a rule scope the evidence of the test submission to the committed reading, which cut multi-block citations from 455 to 66.</div></div></li>
+    <li><div><div class="t">Copies of one model are not independent reviewers.</div><div class="d">They tended to agree on the same wrong reading: an early jury of three, played by the analyst's own model, matched gold in 0 of 19 decisions on the hard training subset. With 19 decisions this observation is exploratory.</div></div></li>
+    <li><div><div class="t">Scaffolding helps, but the model matters as much as the technique.</div><div class="d">A stronger model alone can outperform a scaffolded weaker one: GLM-5.3-Flash prompted directly beats DeepSeek-V4-Flash with C3 (61:16, p = 2×10⁻⁷).</div></div></li>
+  </ol>
+  <p>Our ranked submission reached <b>45.09%</b> joint accuracy on test, against 85.09% for the best entry. The replica and the selection guidance were developed after the competition, for analysis only.</p>
+  <div class="limits"><b>Limitations.</b> All results come from one benchmark of grade-school math variants. The card was derived from test documents after the deadline, and 65 of the replica's 300 targets come from the development corpus. Every arm is a single run, and the closed-agent comparison is not controlled: the agent ran once, interactively, with code execution.</div>
+</div>
+</section>
+
+<section id="reproduce">
+<div class="col">
+  <h2>Reproduce</h2>
+  <p>The repository contains every prompt, the replica and its generator, the stage-1 text of all documents, and the completions of every model call behind the paper's tables. The package uses only the Python standard library.</p>
+<pre><button class="copy" type="button">Copy</button><code>git clone https://github.com/Dyonnatan/docsem-2026.git && cd docsem-2026
+pip install -e ".[dev]"
+
+dfm tables                     <span class="c"># recompute the paper's tables, no API calls</span>
+dfm replay configs/*/*.json    <span class="c"># rebuild every prediction from its completions</span>
+dfm replica build --out /tmp/r <span class="c"># regenerate the replica byte for byte</span>
+pytest
+
+dfm run configs/replica/c3-card-glm.json   <span class="c"># new run, needs OPENROUTER_API_KEY</span></code></pre>
+  <p style="font-size:15px">The figures that the revised paper corrects relative to the camera-ready version and to the material presented at the workshop are listed in <a href="https://github.com/Dyonnatan/docsem-2026/blob/main/docs/REPRODUCING.md">docs/REPRODUCING.md</a>.</p>
+
+  <h3 id="citation">Citation</h3>
+<pre><button class="copy" type="button">Copy</button><code>@misc{maia2026dfm,
+  title        = {{DFM} at {DocSEM} 2026: Investigating a Guided-Reasoning Pipeline
+                  for Open Models Under a Validation--Test Shift},
+  author       = {Maia, Dyonnatan Ferreira},
+  year         = {2026},
+  howpublished = {\url{https://github.com/Dyonnatan/docsem-2026}},
+  note         = {Non-archival poster, DocInsights 2026 Workshop at EMNLP 2026}
+}</code></pre>
+</div>
+</section>
+
+<div class="band">
+  <img src="assets/skyline.png" alt="">
+  <div class="band-in">
+    <div>
+      <div class="t">Presented at DocInsights 2026, EMNLP 2026, Budapest</div>
+      <div class="s">Poster session 3 · DocInsights-48 · DocSEM shared task, Task 1</div>
+    </div>
+    <div class="buttons" style="margin:0">
+      <a class="btn" href="assets/poster.pdf">Poster</a>
+      <a class="btn" href="slides/">Talk slides</a>
+      <a class="btn" href="assets/slides.pdf">Slides PDF</a>
+      <a class="btn" href="https://github.com/Dyonnatan/docsem-2026">Code</a>
+    </div>
+  </div>
+</div>
+<footer>
+  <span>Dyonnatan Ferreira Maia · <a href="mailto:dyonnatan@egresso.ufg.br">dyonnatan@egresso.ufg.br</a></span>
+  <span>Code MIT · DocSEM data and the replica UPL-1.0</span>
+</footer>
+
+<script>
+(() => {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* sticky nav state and active section */
+  const nav = document.getElementById("nav");
+  const links = [...document.querySelectorAll(".nav-links a")];
+  const onScroll = () => {
+    nav.classList.toggle("scrolled", window.scrollY > 8);
+    let current = null;
+    for (const a of links) {
+      const s = document.querySelector(a.getAttribute("href"));
+      if (s && s.getBoundingClientRect().top < 120) current = a;
+    }
+    links.forEach(a => a.classList.toggle("active", a === current));
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* step-through figures */
+  function walkthrough(key, steps, render, interval = 3600) {
+    const bar = document.querySelector(`.controls[data-walk="${key}"]`);
+    const fill = bar.querySelector(".fill");
+    const count = bar.querySelector(".count");
+    const play = bar.querySelector('[data-act="play"]');
+    let i = 0, timer = null;
+    const pad = n => String(n).padStart(2, "0");
+    const show = k => {
+      i = (k + steps.length) % steps.length;
+      render(i, steps[i]);
+      fill.style.width = `${(100 * i) / (steps.length - 1)}%`;
+      count.textContent = `${pad(i + 1)} / ${pad(steps.length)}`;
+    };
+    const setPlaying = on => {
+      clearInterval(timer); timer = null;
+      if (on) timer = setInterval(() => show(i + 1), interval);
+      play.querySelector("span").textContent = on ? "Pause" : "Play";
+      play.querySelector("svg").innerHTML = on
+        ? '<path d="M3 1.5h2.2v9H3zM6.8 1.5H9v9H6.8z"/>' : '<path d="M3 1.5v9l7-4.5z"/>';
+    };
+    bar.addEventListener("click", e => {
+      const act = e.target.closest("[data-act]")?.dataset.act;
+      if (act === "play") setPlaying(!timer);
+      if (act === "next") { setPlaying(false); show(i + 1); }
+      if (act === "prev") { setPlaying(false); show(i - 1); }
+      if (act === "seek") {
+        const r = e.currentTarget.querySelector(".track").getBoundingClientRect();
+        setPlaying(false);
+        show(Math.round(((e.clientX - r.left) / r.width) * (steps.length - 1)));
+      }
+    });
+    show(0);
+    if (!reduce) {
+      const io = new IntersectionObserver(es => es.forEach(en => {
+        if (en.isIntersecting && !timer && !bar.dataset.started) { bar.dataset.started = "1"; setPlaying(true); }
+        if (!en.isIntersecting && timer) setPlaying(false);
+      }), { threshold: 0.45 });
+      io.observe(bar.closest(".panel"));
+    }
+  }
+
+  /* figure 1: schematic test document */
+  const page = document.getElementById("w-page");
+  const N = 72;
+  const questions = new Set([2, 5, 9, 12, 16, 19, 22, 26, 29, 31, 35, 38, 41, 44, 47, 50, 53, 55, 58, 61, 63, 66, 69, 70]);
+  const decoys = new Set([9, 29, 47, 61]);
+  const target = 38, solo = 26;
+  for (let k = 0; k < N; k++) {
+    const b = document.createElement("div");
+    b.className = "blk" + (questions.has(k) ? " q" : "") + (decoys.has(k) ? " decoy" : "") +
+      (k === target ? " target" : "") + (k === solo ? " solo" : "") + (k === 9 ? " pick" : "");
+    page.appendChild(b);
+  }
+  const doc = document.getElementById("w-doc");
+  const W = [
+    ["A validation document poses one problem.", "About 5k characters and a single quantitative question: finding the passage is trivial, and all difficulty lies in interpreting it."],
+    ["A test document poses about two dozen.", "About 43k characters and 23.6 complete, solvable problems on average. Only one answers the query."],
+    ["Some of them are decoys.", "They repeat the query's two anchor words inside a counting template, so their wording matches the query better than the target's does."],
+    ["Keyword overlap points to a decoy.", "Matching the query's words, the intuitive heuristic, selects the wrong block. Our targeted test re-run used exactly this heuristic."],
+    ["The target phrases its subject naturally.", "The passage the query is about mentions Opal and what she spends only in ordinary prose, with its own numbers to resolve."],
+    ["One paragraph of guidance changes the choice.", "Describing the decoy template and asking the model to match what a problem is about raised replica answer accuracy by 19.0 and 15.7 points over C3."],
+  ];
+  walkthrough("w", W, (i, [text, note]) => {
+    doc.className = `doc-main state-${i + 1}`;
+    document.getElementById("w-label").textContent = `Step ${i + 1}`;
+    document.getElementById("w-text").textContent = text;
+    document.getElementById("w-note").textContent = note;
+    document.getElementById("w-decoy").classList.toggle("show", i >= 3 && i <= 4);
+    document.getElementById("w-target").classList.toggle("show", i >= 4);
+    document.getElementById("w-query").classList.toggle("dim", i === 0);
+  });
+
+  /* figure 2: derivation */
+  const D = [
+    ["The analyst reads one passage.", "A dev200 task. The query asks what percentage of the shark's length the remoras take up."],
+    ["It writes a first reading as steps.", "Each obs step binds a number from the passage; the assume step states the interpretation."],
+    ["It writes a rival reading.", "The two readings must differ in the meaning of a number, a quantifier or a unit, not in rounding."],
+    ["Python compiles and evaluates both.", "Names are substituted until only numbers remain. Both readings survive the validators."],
+    ["In C3C, a reviewer labels both.", "Labels come from a closed set; here the ambiguity is S-quant: is the 6 inches once, or once per remora? A notebook rule decides only when it prefers one side."],
+    ["A reading is committed.", "Here the analyst preferred r1, which matches the gold answer, 10. The submitted value is always the compiled value of the chosen reading."],
+  ];
+  const lines = [...document.querySelectorAll("#d-right [data-s]")];
+  walkthrough("d", D, (i, [text, note]) => {
+    const s = i + 1;
+    lines.forEach(el => el.classList.toggle("on", s >= Number(el.dataset.s)));
+    document.getElementById("d-label").textContent = `Step ${s}`;
+    document.getElementById("d-text").textContent = text;
+    document.getElementById("d-note").textContent = note;
+    document.getElementById("r1v").textContent = s >= 4 ? "10.0" : "";
+    document.getElementById("r2v").textContent = s >= 4 ? "5.0" : "";
+    document.getElementById("r1").className = "reading" + (s >= 6 ? " win" : "");
+    document.getElementById("r2").className = "reading" + (s >= 6 ? " lose" : "");
+  }, 3400);
+
+  /* figure 3: replica chart */
+  const DATA = {
+    groups: ["DeepSeek-V4-Flash", "GLM-5.3-Flash"],
+    variants: ["A0", "C2", "C3", "C3 + card"],
+    answer:   [[46.3, 53.0, 49.3, 68.3], [64.4, 68.9, 62.0, 77.7]],
+    ci:       [[[40.8, 52.0], [47.3, 58.6], [43.7, 55.0], [62.9, 73.3]], [[58.8, 69.7], [63.4, 73.9], [56.4, 67.3], [72.6, 82.0]]],
+    evidence: [[46.0, 60.3, 46.0, 76.0], [70.8, 58.5, 63.0, 80.3]],
+    joint:    [[40.3, 50.7, 38.7, 63.7], [63.1, 53.2, 51.7, 67.0]],
+    agent: { answer: 82.0, evidence: 94.0, joint: 82.0 },
+  };
+  const HINT = {
+    answer: "Exact numeric answer.",
+    evidence: "Cited exactly the target block.",
+    joint: "Both right: the ranking metric.",
+  };
+  const svg = document.getElementById("bars");
+  const NS = "http://www.w3.org/2000/svg";
+  const W0 = 900, H0 = 380, L = 54, R = 16, T = 28, B = 312;
+  const y = v => B - (B - T) * v / 100;
+  const el = (tag, attrs, text) => {
+    const e = document.createElementNS(NS, tag);
+    for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+    if (text != null) e.textContent = text;
+    svg.appendChild(e); return e;
+  };
+  for (let v = 0; v <= 100; v += 20) {
+    el("line", { x1: L, x2: W0 - R, y1: y(v), y2: y(v), stroke: v ? "#ecebe6" : "#a5a29a" });
+    el("text", { x: L - 10, y: y(v) + 4, "font-size": 12, fill: "#8a8d95", "text-anchor": "end" }, v);
+  }
+  const gw = (W0 - L - R) / 2, bw = 66, gap = 16;
+  const bars = [], labels = [], whiskers = [];
+  DATA.groups.forEach((g, gi) => {
+    const x0 = L + gi * gw + (gw - 4 * bw - 3 * gap) / 2;
+    DATA.variants.forEach((v, vi) => {
+      const x = x0 + vi * (bw + gap);
+      const color = vi === 3 ? "#eb6834" : vi === 0 ? "#d9d6cd" : "#8f8c84";
+      bars.push(el("rect", { class: "bar", x, y: B, width: bw, height: 0, rx: 4, fill: color }));
+      whiskers.push(el("line", { x1: x + bw / 2, x2: x + bw / 2, y1: B, y2: B, stroke: "#16181d", "stroke-width": 1.2, opacity: 0.5 }));
+      labels.push(el("text", { class: "lbl", x: x + bw / 2, y: B - 6, "font-size": 14, "font-weight": 700, fill: "#16181d", "text-anchor": "middle" }, ""));
+      el("text", { x: x + bw / 2, y: B + 20, "font-size": 13, fill: "#3d4048", "text-anchor": "middle" }, v);
+    });
+    el("text", { x: L + gi * gw + gw / 2, y: B + 48, "font-size": 14.5, "font-weight": 600, fill: "#16181d", "text-anchor": "middle" }, g);
+  });
+  const agentLine = el("line", { x1: L, x2: W0 - R, y1: y(82), y2: y(82), stroke: "#273c75", "stroke-width": 1.6, "stroke-dasharray": "6 5" });
+  const agentText = el("text", { x: L + 8, y: y(82) - 8, "font-size": 12.5, fill: "#273c75", "font-style": "italic" }, "");
+  const draw = metric => {
+    DATA.groups.forEach((_, gi) => DATA.variants.forEach((__, vi) => {
+      const k = gi * 4 + vi, v = DATA[metric][gi][vi];
+      bars[k].setAttribute("y", y(v)); bars[k].setAttribute("height", B - y(v));
+      const top = metric === "answer" ? DATA.ci[gi][vi][1] : v;
+      labels[k].setAttribute("y", y(top) - 8); labels[k].textContent = v.toFixed(1);
+      if (metric === "answer") {
+        whiskers[k].setAttribute("y1", y(DATA.ci[gi][vi][0])); whiskers[k].setAttribute("y2", y(DATA.ci[gi][vi][1]));
+        whiskers[k].style.display = "";
+      } else whiskers[k].style.display = "none";
+    }));
+    const a = DATA.agent[metric];
+    agentLine.setAttribute("y1", y(a)); agentLine.setAttribute("y2", y(a));
+    agentText.setAttribute("y", y(a) - 8);
+    agentText.textContent = `closed coding agent (Claude Code, Sonnet 5): ${a.toFixed(1)}`;
+    document.getElementById("metric-hint").textContent = HINT[metric];
+  };
+  document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll(".seg button").forEach(o => o.setAttribute("aria-pressed", String(o === b)));
+    draw(b.dataset.metric);
+  }));
+  requestAnimationFrame(() => draw("answer"));
+
+  /* copy buttons */
+  document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", async () => {
+    const text = btn.nextElementSibling.innerText;
+    try { await navigator.clipboard.writeText(text); btn.textContent = "Copied"; }
+    catch { btn.textContent = "Select and copy"; }
+    setTimeout(() => (btn.textContent = "Copy"), 1600);
+  }));
+})();
+</script>
+</body>
+</html>

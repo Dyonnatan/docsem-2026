@@ -1,0 +1,52 @@
+% Input/output example for the two model calls (Section 3). The analyst part is an
+% abridged trace of dev200 task_000001; the reviewer part shows the required output format.
+\begin{figure}[!t]
+\small
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize,breaklines=true,frame=none,
+                   xleftmargin=0pt,columns=fullflexible]
+ANALYST  in: query + document
+  query: "...concerning percentage and foot,
+          what final value is required?"
+  b10:   "What percentage of a 10-foot shark's
+          length is taken up by two remoras,
+          each measuring 6 inches in length?"
+
+ANALYST out: two readings, differing in MEANING
+  r1 {"op":"obs","id":"remora_each_in","value":6}
+     {"op":"obs","id":"remora_count","value":2}
+     {"op":"assume","text":"1 foot equals 12 inches..."}
+     ...                                  (steps omitted)
+     {"op":"therefore","id":"percentage",
+      "expr":"total_remora_in / shark_len_in * 100"}
+     {"op":"return","expr":"percentage"}
+
+  r2 {"op":"obs","id":"pair_length_in","value":6}
+     {"op":"assume","text":"the pair together measures
+      6 inches, rather than each remora"}
+     ...                                  (steps omitted)
+     {"op":"return","expr":"percentage"}
+
+COMPILE + EVALUATE                     (deterministic)
+  r1 -> (((6)*(2)) / ((10)*12) * 100) = 10.0   <- gold
+  r2 -> ((6) / ((10)*12) * 100)       =  5.0
+
+REVIEWER out: required shape (closed set of sides)
+  {"id":"r1","schema":"S-quant","side":"times_k",
+   "warrant":"...grounded in the wording, not in
+              which number looks right"}
+
+  S-incl: added_only | base_plus_added
+  S-quant: once | times_k
+  S-pct: points | relative
+\end{lstlisting}
+\caption{Input and output of the two model calls. The analyst part is an
+abridged trace of a real dev200 task (``\ldots'' marks omitted steps); the
+reviewer part shows the required output format, not an observed output. The
+ambiguity is lexical (\emph{two remoras, \textbf{each} measuring 6 inches}),
+and both readings compile and evaluate, so arithmetic alone cannot resolve it.
+The \texttt{assume} step states each reading's warrant. The submitted answer
+is the compiled value of the surviving or committed reading; the number the
+model states in its prediction is used only as a fallback. The reviewer labels readings with a side from a closed
+set, so that a rule can test whether the labels separate them.}
+\label{fig:io}
+\end{figure}

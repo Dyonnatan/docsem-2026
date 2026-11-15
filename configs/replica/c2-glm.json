@@ -1,0 +1,31 @@
+{
+  "name": "replica/c2-glm",
+  "split": "replica",
+  "method": "C2",
+  "prompt": "c2.txt",
+  "model": {
+    "model": "z-ai/glm-5.3-flash",
+    "reasoning": {
+      "enabled": true,
+      "effort": "high"
+    },
+    "max_tokens": 24576,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "provider": {
+      "only": [
+        "deepinfra",
+        "coreweave"
+      ],
+      "order": [
+        "deepinfra",
+        "coreweave"
+      ],
+      "allow_fallbacks": true,
+      "require_parameters": true,
+      "data_collection": "deny"
+    }
+  },
+  "max_repairs": 1,
+  "concurrency": 5
+}

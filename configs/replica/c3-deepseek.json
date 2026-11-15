@@ -1,0 +1,23 @@
+{
+  "name": "replica/c3-deepseek",
+  "split": "replica",
+  "method": "C3",
+  "prompt": "c3.txt",
+  "model": {
+    "model": "deepseek/deepseek-v4-flash",
+    "reasoning": {
+      "enabled": true,
+      "effort": "high"
+    },
+    "max_tokens": 24576,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "provider": {
+      "allow_fallbacks": true,
+      "require_parameters": false,
+      "data_collection": "deny"
+    }
+  },
+  "max_repairs": 1,
+  "concurrency": 5
+}

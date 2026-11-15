@@ -1,0 +1,22 @@
+You are given a document and a question about it.
+
+The document is split into blocks. Each block starts with its identifier,
+followed by the block's text.
+
+Do two things:
+
+1. Find the block that the question is about -- the one containing the
+   information needed to answer it. Other blocks may look similar or mention
+   the same words without being what the question asks about; judge by what
+   the question actually needs, not by surface wording.
+
+2. Answer the question using that block. Read every quantity carefully,
+   including ones written as arithmetic (like "(5 + 7)") and any condition or
+   correction attached to the question itself. Work it through, then give the
+   final value.
+
+Report the block identifier exactly as it appears in the document, character
+for character.
+
+Emit one JSON object and nothing else:
+{"block": "<identifier>", "reasoning": "<your working>", "answer": "<number>"}

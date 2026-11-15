@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" width="760" height="560" role="img" aria-label="The C3C pipeline" font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
+<title>The C3C pipeline</title>
+<rect width="760" height="560" fill="#ffffff"/>
+<rect x="160.0" y="16" width="440" height="56" rx="8" fill="#273c75" stroke="#273c75" stroke-width="1.4"/>
+<text x="380.0" y="40" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">Page transcription (VLM, once per document)</text>
+<text x="380.0" y="60" font-size="12.5" fill="#c9d6ec" text-anchor="middle">MinerU2.5-Pro: rendered PDF → markdown with block ids</text>
+<line x1="380" y1="72" x2="380" y2="89" stroke="#6b6964" stroke-width="1.6"/>
+<path d="M375,88 L385,88 L380,96 Z" fill="#6b6964"/>
+<rect x="160.0" y="96" width="440" height="56" rx="8" fill="#273c75" stroke="#273c75" stroke-width="1.4"/>
+<text x="380.0" y="120" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">Analyst (LLM)</text>
+<text x="380.0" y="140" font-size="12.5" fill="#c9d6ec" text-anchor="middle">query + document → two rival readings as DSL steps</text>
+<line x1="380" y1="152" x2="380" y2="169" stroke="#6b6964" stroke-width="1.6"/>
+<path d="M375,168 L385,168 L380,176 Z" fill="#6b6964"/>
+<rect x="160.0" y="176" width="440" height="56" rx="8" fill="#ffffff" stroke="#8e8c86" stroke-width="1.4"/>
+<text x="380.0" y="200" font-size="15" font-weight="700" fill="#16181d" text-anchor="middle">Compile and evaluate</text>
+<text x="380.0" y="220" font-size="12.5" fill="#55534e" text-anchor="middle">steps → expression → value (Python, no model)</text>
+<line x1="380" y1="232" x2="380" y2="249" stroke="#6b6964" stroke-width="1.6"/>
+<path d="M375,248 L385,248 L380,256 Z" fill="#6b6964"/>
+<rect x="160.0" y="256" width="440" height="56" rx="8" fill="#ffffff" stroke="#8e8c86" stroke-width="1.4"/>
+<text x="380.0" y="280" font-size="15" font-weight="700" fill="#16181d" text-anchor="middle">Validate</text>
+<text x="380.0" y="300" font-size="12.5" fill="#55534e" text-anchor="middle">V5 evaluates · V4 tiered rates · V2 relative coverage</text>
+<path d="M380,312 V330 M190,330 H570" fill="none" stroke="#6b6964" stroke-width="1.6"/>
+<line x1="190" y1="330" x2="190" y2="349" stroke="#6b6964" stroke-width="1.6"/>
+<path d="M185,348 L195,348 L190,356 Z" fill="#6b6964"/>
+<line x1="570" y1="330" x2="570" y2="349" stroke="#6b6964" stroke-width="1.6"/>
+<path d="M565,348 L575,348 L570,356 Z" fill="#6b6964"/>
+<text x="198" y="346" font-size="12" font-style="italic" fill="#55534e">one survives</text>
+<text x="578" y="346" font-size="12" font-style="italic" fill="#55534e">several survive (C3C)</text>
+<rect x="50" y="356" width="280" height="56" rx="8" fill="#ffffff" stroke="#8e8c86" stroke-width="1.4"/>
+<text x="190.0" y="380" font-size="15" font-weight="700" fill="#16181d" text-anchor="middle">Commit the survivor</text>
+<text x="190.0" y="400" font-size="12.5" fill="#55534e" text-anchor="middle">no further model call</text>
+<rect x="410" y="356" width="320" height="56" rx="8" fill="#273c75" stroke="#273c75" stroke-width="1.4"/>
+<text x="570.0" y="380" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">Reviewer (LLM)</text>
+<text x="570.0" y="400" font-size="12.5" fill="#c9d6ec" text-anchor="middle">labels each reading: schema + side</text>
+<line x1="570" y1="412" x2="570" y2="427" stroke="#6b6964" stroke-width="1.6"/>
+<path d="M565,426 L575,426 L570,434 Z" fill="#6b6964"/>
+<rect x="410" y="434" width="320" height="56" rx="8" fill="#ffffff" stroke="#8e8c86" stroke-width="1.4"/>
+<text x="570.0" y="458" font-size="15" font-weight="700" fill="#16181d" text-anchor="middle">Decide</text>
+<text x="570.0" y="478" font-size="12.5" fill="#55534e" text-anchor="middle">notebook rule if labels separate; else analyst's choice</text>
+<path d="M190,412 V508 H570 M570,490 V508" fill="none" stroke="#6b6964" stroke-width="1.6"/>
+<line x1="380" y1="508" x2="380" y2="517" stroke="#6b6964" stroke-width="1.6"/>
+<path d="M375,516 L385,516 L380,524 Z" fill="#6b6964"/>
+<rect x="230" y="524" width="300" height="32" rx="8" fill="#e8f4ff" stroke="#40739e" stroke-width="1.4"/>
+<text x="380.0" y="545.0" font-size="15" font-weight="700" fill="#273c75" text-anchor="middle">numeric answer + block id</text>
+<rect x="620" y="116" width="16" height="12" rx="2" fill="#273c75" stroke="#273c75"/>
+<text x="642" y="126" font-size="12" fill="#55534e">model call</text>
+<rect x="620" y="138" width="16" height="12" rx="2" fill="#ffffff" stroke="#8e8c86"/>
+<text x="642" y="148" font-size="12" fill="#55534e">deterministic code</text>
+</svg>

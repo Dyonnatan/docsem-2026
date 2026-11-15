@@ -1,0 +1,21 @@
+{
+  "name": "replica/a0-deepseek",
+  "split": "replica",
+  "method": "A0",
+  "prompt": "a0.txt",
+  "model": {
+    "model": "deepseek/deepseek-v4-flash",
+    "reasoning": {
+      "enabled": true
+    },
+    "max_tokens": 24576,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "provider": {
+      "allow_fallbacks": true,
+      "require_parameters": false,
+      "data_collection": "allow"
+    }
+  },
+  "concurrency": 5
+}

@@ -1,0 +1,41 @@
+{
+  "name": "dev200/c3c-deepseek",
+  "split": "dev200",
+  "method": "C3C",
+  "prompt": "c3.txt",
+  "model": {
+    "model": "deepseek/deepseek-v4-flash",
+    "reasoning": {
+      "enabled": true,
+      "effort": "high"
+    },
+    "max_tokens": 8192,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "provider": {
+      "allow_fallbacks": true,
+      "require_parameters": false,
+      "data_collection": "deny"
+    }
+  },
+  "max_repairs": 1,
+  "reviewer_prompt": "c3c-reviewer.txt",
+  "reviewer_model": {
+    "model": "deepseek/deepseek-v4-flash",
+    "reasoning": {
+      "enabled": true,
+      "effort": "medium"
+    },
+    "max_tokens": 16384,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "provider": {
+      "allow_fallbacks": true,
+      "require_parameters": false,
+      "data_collection": "deny"
+    }
+  },
+  "notebook": "notebook-dev200.json",
+  "reviewer_adds_readings": true,
+  "concurrency": 5
+}

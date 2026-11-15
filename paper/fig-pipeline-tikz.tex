@@ -1,0 +1,89 @@
+% Native TikZ pipeline diagram sized for one ACL column.
+\begin{tikzpicture}[
+  font=\sffamily\scriptsize,
+  >=Latex,
+  flow/.style={-{Latex[length=2mm]}, line width=0.55pt, draw=black!65},
+  model/.style={
+    draw=blue!55!black, fill=blue!7, line width=0.65pt,
+    rounded corners=2pt, align=left, inner sep=4.5pt,
+    text width=6.9cm, minimum height=0.83cm
+  },
+  rule/.style={
+    draw=black!55, fill=black!2, line width=0.55pt,
+    rounded corners=2pt, align=left, inner sep=4.5pt,
+    text width=6.9cm, minimum height=0.78cm
+  },
+  branchmodel/.style={
+    model, text width=3.0cm, minimum height=0.92cm,
+    align=center, inner sep=3.5pt
+  },
+  branchrule/.style={
+    rule, text width=3.0cm, minimum height=0.92cm,
+    align=center, inner sep=3.5pt
+  },
+  decision/.style={
+    diamond, aspect=2.15, draw=black!55, fill=black!2,
+    line width=0.55pt, align=center, inner sep=1.5pt,
+    text width=1.65cm
+  },
+  output/.style={
+    draw=green!45!black, fill=green!7, line width=0.65pt,
+    rounded corners=2pt, align=center, inner sep=4pt,
+    text width=4.4cm, minimum height=0.62cm
+  },
+  note/.style={font=\sffamily\tiny, text=black!65, align=center}
+]
+
+\node[model] (vlm) {%
+  \textbf{VLM: page transcription}\hfill\textit{once per document}\\[-1pt]
+  \color{black!68}Rendered PDF $\rightarrow$ markdown with block identifiers};
+
+\node[model, below=4.5mm of vlm] (analyst) {%
+  \textbf{LLM: generate candidate readings}\hfill\textit{per query}\\[-1pt]
+  \color{black!68}Query + document $\rightarrow$ rival DSL readings and values};
+
+\node[rule, below=4.5mm of analyst] (compile) {%
+  \textbf{Compile and evaluate}\\[-1pt]
+  \color{black!68}DSL steps $\rightarrow$ expressions $\rightarrow$ numeric values};
+
+\node[rule, below=4.5mm of compile] (validate) {%
+  \textbf{Validate candidate readings}\\[-1pt]
+  \color{black!68}V2 relative coverage $\cdot$ V4 tiered rates $\cdot$ V5 execution};
+
+\node[decision, below=5mm of validate] (decision) {surviving\\readings?};
+
+\node[branchrule, below left=7mm and -1mm of decision] (commit) {%
+  \textbf{Commit survivor}\\[-1pt]
+  \color{black!68}no further model call};
+
+\node[branchmodel, below right=7mm and -1mm of decision] (review) {%
+  \textbf{LLM: label readings}\\[-1pt]
+  \color{black!68}assign side; may add a reading};
+
+\node[branchrule, below=4.5mm of review] (close) {%
+  \textbf{Decide}\\[-1pt]
+  \color{black!68}notebook rule if labels separate; else analyst's preference};
+
+% Merge the two branches below both boxes so the connector never crosses the
+% text inside the lower ``Decide'' node.
+\coordinate (merge) at ($(decision.south |- close.south)+(0,-3mm)$);
+
+\node[rule, text width=6.9cm, below=4.5mm of merge] (scope) {%
+  \textbf{Scope evidence to the committed reading} (test only)\\[-1pt]
+  \color{black!68}Retain only its supporting block identifier};
+
+\node[output, below=4.5mm of scope] (out) {\textbf{numeric answer + evidence}};
+
+\draw[flow] (vlm) -- (analyst);
+\draw[flow] (analyst) -- (compile);
+\draw[flow] (compile) -- (validate);
+\draw[flow] (validate) -- (decision);
+\draw[flow] (decision.west) -| node[note, near start, above] {one} (commit.north);
+\draw[flow] (decision.east) -| node[note, near start, above] {several} (review.north);
+\draw[flow] (review) -- (close);
+\draw[line width=0.55pt, draw=black!65] (commit.south) |- (merge);
+\draw[line width=0.55pt, draw=black!65] (close.south) |- (merge);
+\draw[flow] (merge) -- (scope);
+\draw[flow] (scope) -- (out);
+
+\end{tikzpicture}

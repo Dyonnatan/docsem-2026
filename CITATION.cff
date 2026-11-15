@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this code or the replica, please cite it as below."
+title: "DFM at DocSEM 2026: Investigating a Guided-Reasoning Pipeline for Open Models Under a Validation-Test Shift"
+type: software
+authors:
+  - family-names: Maia
+    given-names: Dyonnatan Ferreira
+repository-code: "https://github.com/Dyonnatan/docsem-2026"
+url: "https://dyonnatan.github.io/docsem-2026/"
+license: MIT
+version: "1.0.0"
+date-released: "2026-11-13"

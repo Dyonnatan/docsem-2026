@@ -1,0 +1,30 @@
+{
+  "name": "dev200/a0-deepseek",
+  "split": "dev200",
+  "method": "A0",
+  "prompt": "a0-bnn.txt",
+  "model": {
+    "model": "deepseek/deepseek-v4-flash",
+    "reasoning": {
+      "enabled": true,
+      "effort": "high"
+    },
+    "max_tokens": 16384,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "provider": {
+      "only": [
+        "deepinfra",
+        "coreweave"
+      ],
+      "order": [
+        "deepinfra",
+        "coreweave"
+      ],
+      "allow_fallbacks": true,
+      "require_parameters": true,
+      "data_collection": "deny"
+    }
+  },
+  "concurrency": 5
+}

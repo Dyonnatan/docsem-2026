@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dfm-docsem"
+version = "1.0.0"
+description = "Guided-reasoning pipeline for document-grounded math with frozen open models (DocSEM 2026)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Dyonnatan Ferreira Maia" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+dfm = "dfm.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dfm"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

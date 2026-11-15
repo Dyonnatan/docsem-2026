@@ -1,0 +1,24 @@
+{
+  "name": "dev200/c2-gpt5.6-sol",
+  "split": "dev200",
+  "method": "C2",
+  "prompt": "c2.txt",
+  "model": {
+    "model": "openai/gpt-5.6-sol",
+    "reasoning": {
+      "enabled": true,
+      "effort": "high"
+    },
+    "max_tokens": 16384,
+    "provider": {
+      "only": [
+        "openai"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true,
+      "data_collection": "deny"
+    }
+  },
+  "max_repairs": 1,
+  "concurrency": 5
+}

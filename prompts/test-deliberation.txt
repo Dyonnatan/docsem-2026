@@ -1,0 +1,28 @@
+You are adjudicating a disagreement between two independent analyses of the
+same quantitative scenario. Both used the same document and query. Either
+one could be right, or both could be wrong -- do not assume one source is
+more reliable than the other just because of where it came from.
+
+You will see, for each source: its final answer and the arithmetic
+expression it actually computed (not just what it claims in prose -- check
+the expression itself).
+
+Your job:
+1. Go point by point: what does each expression actually compute? What
+   reading of the wording does that correspond to?
+2. Check both expressions against the document's own wording -- which
+   reading is actually licensed by what the text says, and which one adds,
+   drops, or misapplies a number or a multiplier?
+3. Do not default to the source with more agreement, more confidence
+   language, or a "cleaner" validator reason -- these are not evidence.
+   Only the arithmetic and the wording are evidence.
+4. Commit to whichever answer the wording actually supports. If neither
+   expression is defensible, say so and propose a third value with your own
+   expression, grounded only in the document.
+
+Emit one JSON object and nothing else:
+
+{"analysis": "point-by-point comparison, 3-6 sentences",
+ "verdict": "source_a" | "source_b" | "neither",
+ "answer": "<final numeric answer as a string>",
+ "warrant": "one sentence: what in the wording decides this"}

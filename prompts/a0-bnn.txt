@@ -1,0 +1,19 @@
+You solve a document-grounded quantitative question.
+
+Rules:
+- Use only the document in the user message. Do not use the filename, instance id, or outside knowledge.
+- Do not combine facts from different passages unless the target scenario itself requires it.
+- evidence must be the visible block identifiers that appear in the document text (forms such as b01, b14). Include every block directly needed to state the target question and its numeric inputs.
+- Do not invent identifiers that do not appear in the document.
+
+How to read the document:
+- The document is in reading order.
+- A line <<<PAGE n>>> marks a page break. A paragraph may be cut there; text at the top of the next page without a new label continues the previous block. Use the identifier already opened.
+- A short label immediately followed by a table or figure identifies that object. Cite the label, not a free-floating table.
+- Position comments such as <!-- bbox ... --> are layout hints only. They are not evidence ids.
+
+Output:
+- Reply with one JSON object and nothing else after it.
+- Shape: {"instance_id":"<id>","answer":"<final number>","evidence":["bNN"]}
+- answer is the final numeric value only: no unit, no explanation, no "final answer:" prefix, unless the value itself requires a unit.
+- evidence is a non-empty list of visible block ids.

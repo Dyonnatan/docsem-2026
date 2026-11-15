@@ -1,0 +1,300 @@
+{"instance_id": "synth_000001", "answer": "50", "evidence": ["645"], "decision": "direct"}
+{"instance_id": "synth_000002", "answer": "1050", "evidence": ["v-418G"], "decision": "direct"}
+{"instance_id": "synth_000003", "answer": "57", "evidence": ["RB8-968"], "decision": "direct"}
+{"instance_id": "synth_000004", "answer": "9", "evidence": ["531"], "decision": "direct"}
+{"instance_id": "synth_000005", "answer": "67", "evidence": ["W&67", "20Q641"], "decision": "direct"}
+{"instance_id": "synth_000006", "answer": "70", "evidence": ["w-499G"], "decision": "direct"}
+{"instance_id": "synth_000007", "answer": "41", "evidence": ["56/J3"], "decision": "direct"}
+{"instance_id": "synth_000008", "answer": "78", "evidence": ["00/P8"], "decision": "direct"}
+{"instance_id": "synth_000009", "answer": "78", "evidence": ["769"], "decision": "direct"}
+{"instance_id": "synth_000010", "answer": "134", "evidence": ["R59-4F0"], "decision": "direct"}
+{"instance_id": "synth_000011", "answer": "79", "evidence": ["R61-865"], "decision": "direct"}
+{"instance_id": "synth_000012", "answer": "57", "evidence": ["i-769V"], "decision": "direct"}
+{"instance_id": "synth_000013", "answer": "706", "evidence": ["R37-663"], "decision": "direct"}
+{"instance_id": "synth_000014", "answer": "1782", "evidence": ["x-506J"], "decision": "direct"}
+{"instance_id": "synth_000015", "answer": "69", "evidence": ["5676", "a-104U"], "decision": "direct"}
+{"instance_id": "synth_000016", "answer": "59", "evidence": ["R88-9C9"], "decision": "direct"}
+{"instance_id": "synth_000017", "answer": "128", "evidence": ["942"], "decision": "direct"}
+{"instance_id": "synth_000018", "answer": "845", "evidence": ["40Q250"], "decision": "direct"}
+{"instance_id": "synth_000019", "answer": "65", "evidence": ["0y05."], "decision": "direct"}
+{"instance_id": "synth_000020", "answer": "45", "evidence": ["58T361", "W&35"], "decision": "direct"}
+{"instance_id": "synth_000021", "answer": "74.25", "evidence": ["8d39"], "decision": "direct"}
+{"instance_id": "synth_000022", "answer": "75", "evidence": ["E&59"], "decision": "direct"}
+{"instance_id": "synth_000023", "answer": "67", "evidence": ["29/X4"], "decision": "direct"}
+{"instance_id": "synth_000024", "answer": "24", "evidence": ["8056"], "decision": "direct"}
+{"instance_id": "synth_000025", "answer": "90", "evidence": ["95/D4"], "decision": "direct"}
+{"instance_id": "synth_000026", "answer": "140", "evidence": ["0z69"], "decision": "direct"}
+{"instance_id": "synth_000027", "answer": "416", "evidence": ["y-098M"], "decision": "direct"}
+{"instance_id": "synth_000028", "answer": "36", "evidence": ["95/U7", "V&55"], "decision": "direct"}
+{"instance_id": "synth_000029", "answer": "88", "evidence": ["u-676M"], "decision": "direct"}
+{"instance_id": "synth_000030", "answer": "2", "evidence": ["d-002N"], "decision": "direct"}
+{"instance_id": "synth_000031", "answer": "77", "evidence": ["699"], "decision": "direct"}
+{"instance_id": "synth_000032", "answer": "59", "evidence": ["a-922T"], "decision": "direct"}
+{"instance_id": "synth_000033", "answer": "83", "evidence": ["s-090W"], "decision": "direct"}
+{"instance_id": "synth_000034", "answer": "25", "evidence": ["G#18"], "decision": "direct"}
+{"instance_id": "synth_000035", "answer": "1090", "evidence": ["16/E3"], "decision": "direct"}
+{"instance_id": "synth_000036", "answer": "49", "evidence": ["X&99"], "decision": "direct"}
+{"instance_id": "synth_000037", "answer": "60", "evidence": ["31/G5"], "decision": "direct"}
+{"instance_id": "synth_000038", "answer": "77", "evidence": ["RB3-5D9", "D&13"], "decision": "direct"}
+{"instance_id": "synth_000039", "answer": "2", "evidence": ["g-605J"], "decision": "direct"}
+{"instance_id": "synth_000040", "answer": "57", "evidence": ["g-480X", "51E207"], "decision": "direct"}
+{"instance_id": "synth_000041", "answer": "180", "evidence": ["K#14"], "decision": "direct"}
+{"instance_id": "synth_000042", "answer": "10", "evidence": ["78/X1"], "decision": "direct"}
+{"instance_id": "synth_000043", "answer": "45", "evidence": ["Z&14"], "decision": "direct"}
+{"instance_id": "synth_000044", "answer": "35", "evidence": ["RF1-370", "RD6-7B3"], "decision": "direct"}
+{"instance_id": "synth_000045", "answer": "1088", "evidence": ["P&50"], "decision": "direct"}
+{"instance_id": "synth_000046", "answer": "55", "evidence": ["R96-932"], "decision": "direct"}
+{"instance_id": "synth_000047", "answer": "73", "evidence": ["1z05"], "decision": "direct"}
+{"instance_id": "synth_000048", "answer": "83", "evidence": ["r-170D", "F&90"], "decision": "direct"}
+{"instance_id": "synth_000049", "answer": "61", "evidence": ["d-421F"], "decision": "direct"}
+{"instance_id": "synth_000050", "answer": "3", "evidence": ["23/Q5"], "decision": "direct"}
+{"instance_id": "synth_000051", "answer": "71", "evidence": ["p-133T"], "decision": "direct"}
+{"instance_id": "synth_000052", "answer": "99", "evidence": ["H&29"], "decision": "direct"}
+{"instance_id": "synth_000053", "answer": "60", "evidence": ["8g69", "0u69"], "decision": "direct"}
+{"instance_id": "synth_000054", "answer": "27", "evidence": ["Q#77"], "decision": "direct"}
+{"instance_id": "synth_000055", "answer": "64", "evidence": ["K&51"], "decision": "direct"}
+{"instance_id": "synth_000056", "answer": "74", "evidence": ["1n71"], "decision": "direct"}
+{"instance_id": "synth_000057", "answer": "81", "evidence": ["99C810"], "decision": "direct"}
+{"instance_id": "synth_000058", "answer": "138", "evidence": ["89/P0", "4i65"], "decision": "direct"}
+{"instance_id": "synth_000059", "answer": "81", "evidence": ["Z#67"], "decision": "direct"}
+{"instance_id": "synth_000060", "answer": "49", "evidence": ["B#91"], "decision": "direct"}
+{"instance_id": "synth_000061", "answer": "9600", "evidence": ["R72-7A3"], "decision": "direct"}
+{"instance_id": "synth_000062", "answer": "495", "evidence": ["j-550Z"], "decision": "direct"}
+{"instance_id": "synth_000063", "answer": "3060", "evidence": ["P#86"], "decision": "direct"}
+{"instance_id": "synth_000064", "answer": "69", "evidence": ["822"], "decision": "direct"}
+{"instance_id": "synth_000065", "answer": "67", "evidence": ["42/P0"], "decision": "direct"}
+{"instance_id": "synth_000066", "answer": "291", "evidence": ["06/Q8", "53/C5"], "decision": "direct"}
+{"instance_id": "synth_000067", "answer": "63", "evidence": ["e-276T"], "decision": "direct"}
+{"instance_id": "synth_000068", "answer": "63", "evidence": ["89F336"], "decision": "direct"}
+{"instance_id": "synth_000069", "answer": "56", "evidence": ["027", "02U277"], "decision": "direct"}
+{"instance_id": "synth_000070", "answer": "47", "evidence": ["1a75"], "decision": "direct"}
+{"instance_id": "synth_000071", "answer": "36", "evidence": ["f-633F"], "decision": "direct"}
+{"instance_id": "synth_000072", "answer": "180", "evidence": ["82/B7"], "decision": "direct"}
+{"instance_id": "synth_000073", "answer": "594", "evidence": ["D&13"], "decision": "direct"}
+{"instance_id": "synth_000074", "answer": "45", "evidence": ["59/H4."], "decision": "direct"}
+{"instance_id": "synth_000075", "answer": "66", "evidence": ["R41-304"], "decision": "direct"}
+{"instance_id": "synth_000076", "answer": "4", "evidence": ["m-722G"], "decision": "direct"}
+{"instance_id": "synth_000077", "answer": "32", "evidence": ["RD2-035"], "decision": "direct"}
+{"instance_id": "synth_000078", "answer": "50", "evidence": ["64/P6", "R03-501"], "decision": "direct"}
+{"instance_id": "synth_000079", "answer": "71", "evidence": ["08/M8", "D&50"], "decision": "direct"}
+{"instance_id": "synth_000080", "answer": "54", "evidence": ["R88-921"], "decision": "direct"}
+{"instance_id": "synth_000081", "answer": "35", "evidence": ["14/A8", "1q82"], "decision": "direct"}
+{"instance_id": "synth_000082", "answer": "59", "evidence": ["Q#25"], "decision": "direct"}
+{"instance_id": "synth_000083", "answer": "522", "evidence": ["18/L3", "6i02", "k-098X", "E&48", "0p56", "R60-830", "M&80"], "decision": "direct"}
+{"instance_id": "synth_000084", "answer": "8", "evidence": ["RE3-8A4"], "decision": "direct"}
+{"instance_id": "synth_000085", "answer": "65", "evidence": ["RE2-129"], "decision": "direct"}
+{"instance_id": "synth_000086", "answer": "9", "evidence": ["E#89"], "decision": "direct"}
+{"instance_id": "synth_000087", "answer": "52", "evidence": ["73J784"], "decision": "direct"}
+{"instance_id": "synth_000088", "answer": "63", "evidence": ["D#24"], "decision": "direct"}
+{"instance_id": "synth_000089", "answer": "81", "evidence": ["y-982X"], "decision": "direct"}
+{"instance_id": "synth_000090", "answer": "9", "evidence": ["R52-248"], "decision": "direct"}
+{"instance_id": "synth_000091", "answer": "61", "evidence": ["28V108", "641"], "decision": "direct"}
+{"instance_id": "synth_000092", "answer": "1782", "evidence": ["z-384S"], "decision": "direct"}
+{"instance_id": "synth_000093", "answer": "52", "evidence": ["W#57", "R61-580"], "decision": "direct"}
+{"instance_id": "synth_000094", "answer": "90", "evidence": ["RA9-879"], "decision": "direct"}
+{"instance_id": "synth_000095", "answer": "51", "evidence": ["X#92"], "decision": "direct"}
+{"instance_id": "synth_000096", "answer": "40", "evidence": ["R35-2D1"], "decision": "direct"}
+{"instance_id": "synth_000097", "answer": "43200", "evidence": ["6630"], "decision": "direct"}
+{"instance_id": "synth_000098", "answer": "9", "evidence": ["8j31"], "decision": "direct"}
+{"instance_id": "synth_000099", "answer": "71", "evidence": ["9249", "9401"], "decision": "direct"}
+{"instance_id": "synth_000100", "answer": "2016", "evidence": ["T&79"], "decision": "direct"}
+{"instance_id": "synth_000101", "answer": "495", "evidence": ["y-170X"], "decision": "direct"}
+{"instance_id": "synth_000102", "answer": "79", "evidence": ["8665.", "2822:"], "decision": "direct"}
+{"instance_id": "synth_000103", "answer": "59", "evidence": ["S#57"], "decision": "direct"}
+{"instance_id": "synth_000104", "answer": "55", "evidence": ["69B108"], "decision": "direct"}
+{"instance_id": "synth_000105", "answer": "20", "evidence": ["U#37", "90X981"], "decision": "direct"}
+{"instance_id": "synth_000106", "answer": "12", "evidence": ["R68-7D7"], "decision": "direct"}
+{"instance_id": "synth_000107", "answer": "75", "evidence": ["m-574P"], "decision": "direct"}
+{"instance_id": "synth_000108", "answer": "50", "evidence": ["RC1-139"], "decision": "direct"}
+{"instance_id": "synth_000109", "answer": "646", "evidence": ["5j41", "d-997T", "J#29", "n-945M", "K&27", "0772", "RF5-667", "72Z117", "g-050M"], "decision": "direct"}
+{"instance_id": "synth_000110", "answer": "29", "evidence": ["X#80"], "decision": "direct"}
+{"instance_id": "synth_000111", "answer": "53", "evidence": ["E&77"], "decision": "direct"}
+{"instance_id": "synth_000112", "answer": "88", "evidence": ["r-906H", "RB1-773"], "decision": "direct"}
+{"instance_id": "synth_000113", "answer": "87", "evidence": ["RC9-005"], "decision": "direct"}
+{"instance_id": "synth_000114", "answer": "579", "evidence": ["31M068"], "decision": "direct"}
+{"instance_id": "synth_000115", "answer": "71", "evidence": ["6556"], "decision": "direct"}
+{"instance_id": "synth_000116", "answer": "40", "evidence": ["02W086"], "decision": "direct"}
+{"instance_id": "synth_000117", "answer": "48", "evidence": ["36/X4", "K&62"], "decision": "direct"}
+{"instance_id": "synth_000118", "answer": "65", "evidence": ["1571"], "decision": "direct"}
+{"instance_id": "synth_000119", "answer": "54", "evidence": ["q-848T"], "decision": "direct"}
+{"instance_id": "synth_000120", "answer": "52", "evidence": ["815:"], "decision": "direct"}
+{"instance_id": "synth_000121", "answer": "43", "evidence": ["G&27"], "decision": "direct"}
+{"instance_id": "synth_000122", "answer": "200", "evidence": ["4g86", "14/R8"], "decision": "direct"}
+{"instance_id": "synth_000123", "answer": "0", "evidence": ["1952"], "decision": "direct"}
+{"instance_id": "synth_000124", "answer": "67", "evidence": ["H#71", "66V213"], "decision": "direct"}
+{"instance_id": "synth_000125", "answer": "3.624", "evidence": ["RA1-944"], "decision": "direct"}
+{"instance_id": "synth_000126", "answer": "33", "evidence": ["j-148S"], "decision": "direct"}
+{"instance_id": "synth_000127", "answer": "27", "evidence": ["3s67", "C&12"], "decision": "direct"}
+{"instance_id": "synth_000128", "answer": "11", "evidence": ["V#24"], "decision": "direct"}
+{"instance_id": "synth_000129", "answer": "66", "evidence": ["K#79"], "decision": "direct"}
+{"instance_id": "synth_000130", "answer": "76", "evidence": ["V&35"], "decision": "direct"}
+{"instance_id": "synth_000131", "answer": "84", "evidence": ["X#99", "802"], "decision": "direct"}
+{"instance_id": "synth_000132", "answer": "87", "evidence": ["X&88"], "decision": "direct"}
+{"instance_id": "synth_000133", "answer": "41", "evidence": ["B#39"], "decision": "direct"}
+{"instance_id": "synth_000134", "answer": "41", "evidence": ["1t90", "R42-625"], "decision": "direct"}
+{"instance_id": "synth_000135", "answer": "50", "evidence": ["R84-6A0"], "decision": "direct"}
+{"instance_id": "synth_000136", "answer": "54", "evidence": ["R17-422"], "decision": "direct"}
+{"instance_id": "synth_000137", "answer": "82", "evidence": ["U#78"], "decision": "direct"}
+{"instance_id": "synth_000138", "answer": "3", "evidence": ["R60-440"], "decision": "direct"}
+{"instance_id": "synth_000139", "answer": "68", "evidence": ["Y#33"], "decision": "direct"}
+{"instance_id": "synth_000140", "answer": "81", "evidence": ["R71-1A4"], "decision": "direct"}
+{"instance_id": "synth_000141", "answer": "750", "evidence": ["7731"], "decision": "direct"}
+{"instance_id": "synth_000142", "answer": "50", "evidence": ["N&76"], "decision": "direct"}
+{"instance_id": "synth_000143", "answer": "70", "evidence": ["51J723"], "decision": "direct"}
+{"instance_id": "synth_000144", "answer": "75", "evidence": ["6f38"], "decision": "direct"}
+{"instance_id": "synth_000145", "answer": "9", "evidence": ["7i60"], "decision": "direct"}
+{"instance_id": "synth_000146", "answer": "76", "evidence": ["4b93"], "decision": "direct"}
+{"instance_id": "synth_000147", "answer": "61", "evidence": ["3q64"], "decision": "direct"}
+{"instance_id": "synth_000148", "answer": "27", "evidence": ["L&97"], "decision": "direct"}
+{"instance_id": "synth_000149", "answer": "21", "evidence": ["H&64"], "decision": "direct"}
+{"instance_id": "synth_000150", "answer": "83", "evidence": ["R69-5C1"], "decision": "direct"}
+{"instance_id": "synth_000151", "answer": "1", "evidence": ["8x48"], "decision": "direct"}
+{"instance_id": "synth_000152", "answer": "49", "evidence": ["R74-779", "RF7-5E4"], "decision": "direct"}
+{"instance_id": "synth_000153", "answer": "74", "evidence": ["91A203", "0124"], "decision": "direct"}
+{"instance_id": "synth_000154", "answer": "108", "evidence": ["W&63"], "decision": "direct"}
+{"instance_id": "synth_000155", "answer": "34", "evidence": ["X#05", "99M841"], "decision": "direct"}
+{"instance_id": "synth_000156", "answer": "542", "evidence": ["94/P1", "42P955", "N#78", "E#96", "i-118Y", "z-696T", "R&44", "1s35", "0364"], "decision": "direct"}
+{"instance_id": "synth_000157", "answer": "39", "evidence": ["X#06", "C&25"], "decision": "direct"}
+{"instance_id": "synth_000158", "answer": "85", "evidence": ["793."], "decision": "direct"}
+{"instance_id": "synth_000159", "answer": "73", "evidence": ["65T596"], "decision": "direct"}
+{"instance_id": "synth_000160", "answer": "69", "evidence": ["872.", "1028:"], "decision": "direct"}
+{"instance_id": "synth_000161", "answer": "1248", "evidence": ["695"], "decision": "direct"}
+{"instance_id": "synth_000162", "answer": "52", "evidence": ["7506"], "decision": "direct"}
+{"instance_id": "synth_000163", "answer": "38", "evidence": ["Q&26"], "decision": "direct"}
+{"instance_id": "synth_000164", "answer": "70", "evidence": ["Z#10"], "decision": "direct"}
+{"instance_id": "synth_000165", "answer": "42", "evidence": ["9p70"], "decision": "direct"}
+{"instance_id": "synth_000166", "answer": "88", "evidence": ["09/K1"], "decision": "direct"}
+{"instance_id": "synth_000167", "answer": "79", "evidence": ["W&44", "17/C6"], "decision": "direct"}
+{"instance_id": "synth_000168", "answer": "1090", "evidence": ["23A588"], "decision": "direct"}
+{"instance_id": "synth_000169", "answer": "54", "evidence": ["2z85"], "decision": "direct"}
+{"instance_id": "synth_000170", "answer": "36", "evidence": ["R63-893"], "decision": "direct"}
+{"instance_id": "synth_000171", "answer": "23", "evidence": ["R16-4F0", "23G711"], "decision": "direct"}
+{"instance_id": "synth_000172", "answer": "36", "evidence": ["RE0-1E9"], "decision": "direct"}
+{"instance_id": "synth_000173", "answer": "54", "evidence": ["8672", "1768"], "decision": "direct"}
+{"instance_id": "synth_000174", "answer": "100", "evidence": ["Z#28"], "decision": "direct"}
+{"instance_id": "synth_000175", "answer": "60", "evidence": ["21/D8"], "decision": "direct"}
+{"instance_id": "synth_000176", "answer": "79", "evidence": ["k-492S"], "decision": "direct"}
+{"instance_id": "synth_000177", "answer": "10", "evidence": ["532"], "decision": "direct"}
+{"instance_id": "synth_000178", "answer": "366", "evidence": ["6c78"], "decision": "direct"}
+{"instance_id": "synth_000179", "answer": "72", "evidence": ["j-705A", "R70-0D8"], "decision": "direct"}
+{"instance_id": "synth_000180", "answer": "66", "evidence": ["J#00", "94W923"], "decision": "direct"}
+{"instance_id": "synth_000181", "answer": "100", "evidence": ["V#55"], "decision": "direct"}
+{"instance_id": "synth_000182", "answer": "44", "evidence": ["348"], "decision": "direct"}
+{"instance_id": "synth_000183", "answer": "52", "evidence": ["Y#32"], "decision": "direct"}
+{"instance_id": "synth_000184", "answer": "72", "evidence": ["RA4-745"], "decision": "direct"}
+{"instance_id": "synth_000185", "answer": "18", "evidence": ["B&20"], "decision": "direct"}
+{"instance_id": "synth_000186", "answer": "72", "evidence": ["K#76"], "decision": "direct"}
+{"instance_id": "synth_000187", "answer": "2", "evidence": ["c-597D"], "decision": "direct"}
+{"instance_id": "synth_000188", "answer": "60", "evidence": ["e-704W", "t-909T"], "decision": "direct"}
+{"instance_id": "synth_000189", "answer": "53", "evidence": ["340"], "decision": "direct"}
+{"instance_id": "synth_000190", "answer": "70", "evidence": ["F#81"], "decision": "direct"}
+{"instance_id": "synth_000191", "answer": "9856", "evidence": ["m-819J"], "decision": "direct"}
+{"instance_id": "synth_000192", "answer": "76", "evidence": ["999"], "decision": "direct"}
+{"instance_id": "synth_000193", "answer": "168", "evidence": ["84/P6"], "decision": "direct"}
+{"instance_id": "synth_000194", "answer": "0.25", "evidence": ["RE3-108"], "decision": "direct"}
+{"instance_id": "synth_000195", "answer": "64", "evidence": ["A#53"], "decision": "direct"}
+{"instance_id": "synth_000196", "answer": "66", "evidence": ["2z69", "R21-0F8"], "decision": "direct"}
+{"instance_id": "synth_000197", "answer": "61", "evidence": ["E&56", "K&19"], "decision": "direct"}
+{"instance_id": "synth_000198", "answer": "1782", "evidence": ["RA4-338"], "decision": "direct"}
+{"instance_id": "synth_000199", "answer": "94", "evidence": ["2y00"], "decision": "direct"}
+{"instance_id": "synth_000200", "answer": "60", "evidence": ["99N867"], "decision": "direct"}
+{"instance_id": "synth_000201", "answer": "27", "evidence": ["A&84"], "decision": "direct"}
+{"instance_id": "synth_000202", "answer": "471", "evidence": ["D#08"], "decision": "direct"}
+{"instance_id": "synth_000203", "answer": "57", "evidence": ["Q&08"], "decision": "direct"}
+{"instance_id": "synth_000204", "answer": "196", "evidence": ["V#36"], "decision": "direct"}
+{"instance_id": "synth_000205", "answer": "17", "evidence": ["28/F0"], "decision": "direct"}
+{"instance_id": "synth_000206", "answer": "51", "evidence": ["W&73"], "decision": "direct"}
+{"instance_id": "synth_000207", "answer": "47", "evidence": ["D&32"], "decision": "direct"}
+{"instance_id": "synth_000208", "answer": "5", "evidence": ["R#86"], "decision": "direct"}
+{"instance_id": "synth_000209", "answer": "63", "evidence": ["2f43"], "decision": "direct"}
+{"instance_id": "synth_000210", "answer": "38", "evidence": ["9e82"], "decision": "direct"}
+{"instance_id": "synth_000211", "answer": "44", "evidence": ["602"], "decision": "direct"}
+{"instance_id": "synth_000212", "answer": "21600", "evidence": ["RB6-791"], "decision": "direct"}
+{"instance_id": "synth_000213", "answer": "80", "evidence": ["A&38"], "decision": "direct"}
+{"instance_id": "synth_000214", "answer": "41", "evidence": ["927"], "decision": "direct"}
+{"instance_id": "synth_000215", "answer": "2", "evidence": ["3484", "r-678F"], "decision": "direct"}
+{"instance_id": "synth_000216", "answer": "63", "evidence": ["x-456W", "R83-130"], "decision": "direct"}
+{"instance_id": "synth_000217", "answer": "71", "evidence": ["24B623"], "decision": "direct"}
+{"instance_id": "synth_000218", "answer": "983", "evidence": ["6a98"], "decision": "direct"}
+{"instance_id": "synth_000219", "answer": "55", "evidence": ["5d26"], "decision": "direct"}
+{"instance_id": "synth_000220", "answer": "74", "evidence": ["Y&69"], "decision": "direct"}
+{"instance_id": "synth_000221", "answer": "9", "evidence": ["47/F4"], "decision": "direct"}
+{"instance_id": "synth_000222", "answer": "81", "evidence": ["771"], "decision": "direct"}
+{"instance_id": "synth_000223", "answer": "70", "evidence": ["R25-120"], "decision": "direct"}
+{"instance_id": "synth_000224", "answer": "136", "evidence": ["Q&09"], "decision": "direct"}
+{"instance_id": "synth_000225", "answer": "4", "evidence": ["B#78"], "decision": "direct"}
+{"instance_id": "synth_000226", "answer": "98", "evidence": ["0707"], "decision": "direct"}
+{"instance_id": "synth_000227", "answer": "68", "evidence": ["U#32"], "decision": "direct"}
+{"instance_id": "synth_000228", "answer": "66", "evidence": ["84/C6"], "decision": "direct"}
+{"instance_id": "synth_000229", "answer": "45", "evidence": ["R56-920"], "decision": "direct"}
+{"instance_id": "synth_000230", "answer": "44", "evidence": ["RA0-146"], "decision": "direct"}
+{"instance_id": "synth_000231", "answer": "30", "evidence": ["3z48"], "decision": "direct"}
+{"instance_id": "synth_000232", "answer": "50", "evidence": ["44/J1"], "decision": "direct"}
+{"instance_id": "synth_000233", "answer": "79", "evidence": ["R60-563", "73Y629"], "decision": "direct"}
+{"instance_id": "synth_000234", "answer": "8", "evidence": ["b-871B"], "decision": "direct"}
+{"instance_id": "synth_000235", "answer": "42", "evidence": ["Y&35"], "decision": "direct"}
+{"instance_id": "synth_000236", "answer": "38", "evidence": ["G#99"], "decision": "direct"}
+{"instance_id": "synth_000237", "answer": "47", "evidence": ["7t82"], "decision": "direct"}
+{"instance_id": "synth_000238", "answer": "65", "evidence": ["88C343"], "decision": "direct"}
+{"instance_id": "synth_000239", "answer": "594", "evidence": ["RB3-616", "r-339Z"], "decision": "direct"}
+{"instance_id": "synth_000240", "answer": "75", "evidence": ["V&20", "U&78"], "decision": "direct"}
+{"instance_id": "synth_000241", "answer": "55", "evidence": ["053"], "decision": "direct"}
+{"instance_id": "synth_000242", "answer": "37", "evidence": ["D&87"], "decision": "direct"}
+{"instance_id": "synth_000243", "answer": "64", "evidence": ["R59-368"], "decision": "direct"}
+{"instance_id": "synth_000244", "answer": "180", "evidence": ["b-177V"], "decision": "direct"}
+{"instance_id": "synth_000245", "answer": "60", "evidence": ["K#11"], "decision": "direct"}
+{"instance_id": "synth_000246", "answer": "72", "evidence": ["59/L6"], "decision": "direct"}
+{"instance_id": "synth_000247", "answer": "28", "evidence": ["RD1-945"], "decision": "direct"}
+{"instance_id": "synth_000248", "answer": "40", "evidence": ["F#64"], "decision": "direct"}
+{"instance_id": "synth_000249", "answer": "43200", "evidence": ["57H669"], "decision": "direct"}
+{"instance_id": "synth_000250", "answer": "46", "evidence": ["R43-5F0", "27L974"], "decision": "direct"}
+{"instance_id": "synth_000251", "answer": "57", "evidence": ["64/V1"], "decision": "direct"}
+{"instance_id": "synth_000252", "answer": "288", "evidence": ["Q#54"], "decision": "direct"}
+{"instance_id": "synth_000253", "answer": "31", "evidence": ["j-494H"], "decision": "direct"}
+{"instance_id": "synth_000254", "answer": "60", "evidence": ["1600", "Q&18"], "decision": "direct"}
+{"instance_id": "synth_000255", "answer": "14400", "evidence": ["p-834D"], "decision": "direct"}
+{"instance_id": "synth_000256", "answer": "31", "evidence": ["L#62", "R59-737"], "decision": "direct"}
+{"instance_id": "synth_000257", "answer": "72", "evidence": ["90M142"], "decision": "direct"}
+{"instance_id": "synth_000258", "answer": "68", "evidence": ["P#38"], "decision": "direct"}
+{"instance_id": "synth_000259", "answer": "6", "evidence": ["e-203E"], "decision": "direct"}
+{"instance_id": "synth_000260", "answer": "530", "evidence": ["8950", "81/Z2"], "decision": "direct"}
+{"instance_id": "synth_000261", "answer": "73", "evidence": ["75J508", "182"], "decision": "direct"}
+{"instance_id": "synth_000262", "answer": "2", "evidence": ["c-360K"], "decision": "direct"}
+{"instance_id": "synth_000263", "answer": "80", "evidence": ["399"], "decision": "direct"}
+{"instance_id": "synth_000264", "answer": "77", "evidence": ["R42-0C9"], "decision": "direct"}
+{"instance_id": "synth_000265", "answer": "62", "evidence": ["w-857F", "z-204T"], "decision": "direct"}
+{"instance_id": "synth_000266", "answer": "428", "evidence": ["V&34"], "decision": "direct"}
+{"instance_id": "synth_000267", "answer": "12", "evidence": ["6t72"], "decision": "direct"}
+{"instance_id": "synth_000268", "answer": "0.5", "evidence": ["76/D2"], "decision": "direct"}
+{"instance_id": "synth_000269", "answer": "83", "evidence": ["46/U1"], "decision": "direct"}
+{"instance_id": "synth_000270", "answer": "9", "evidence": ["34D277", "6933"], "decision": "direct"}
+{"instance_id": "synth_000271", "answer": "76", "evidence": ["59/Y4", "R&77"], "decision": "direct"}
+{"instance_id": "synth_000272", "answer": "35", "evidence": ["90/Y4"], "decision": "direct"}
+{"instance_id": "synth_000273", "answer": "291", "evidence": ["R44-2F2", "Y&98"], "decision": "direct"}
+{"instance_id": "synth_000274", "answer": "5", "evidence": ["R&52"], "decision": "direct"}
+{"instance_id": "synth_000275", "answer": "66", "evidence": ["j-526N"], "decision": "direct"}
+{"instance_id": "synth_000276", "answer": "66", "evidence": ["t-013L"], "decision": "direct"}
+{"instance_id": "synth_000277", "answer": "8", "evidence": ["62/Z5"], "decision": "direct"}
+{"instance_id": "synth_000278", "answer": "59", "evidence": ["H#81"], "decision": "direct"}
+{"instance_id": "synth_000279", "answer": "11", "evidence": ["090."], "decision": "direct"}
+{"instance_id": "synth_000280", "answer": "37", "evidence": ["41/G3"], "decision": "direct"}
+{"instance_id": "synth_000281", "answer": "6", "evidence": ["0q19"], "decision": "direct"}
+{"instance_id": "synth_000282", "answer": "75", "evidence": ["62B885"], "decision": "direct"}
+{"instance_id": "synth_000283", "answer": "6", "evidence": ["m-697J", "62/E4"], "decision": "direct"}
+{"instance_id": "synth_000284", "answer": "56", "evidence": ["52R201"], "decision": "direct"}
+{"instance_id": "synth_000285", "answer": "80", "evidence": ["K&52"], "decision": "direct"}
+{"instance_id": "synth_000286", "answer": "72", "evidence": ["42/U1"], "decision": "direct"}
+{"instance_id": "synth_000287", "answer": "20", "evidence": ["046."], "decision": "direct"}
+{"instance_id": "synth_000288", "answer": "442", "evidence": ["R42-331", "61C306", "RD5-847", "0h79", "k-110R", "s-031S", "A&87"], "decision": "direct"}
+{"instance_id": "synth_000289", "answer": "79", "evidence": ["6591"], "decision": "direct"}
+{"instance_id": "synth_000290", "answer": "1", "evidence": ["R75-506"], "decision": "direct"}
+{"instance_id": "synth_000291", "answer": "49", "evidence": ["33/M9"], "decision": "direct"}
+{"instance_id": "synth_000292", "answer": "64", "evidence": ["731", "456"], "decision": "direct"}
+{"instance_id": "synth_000293", "answer": "44", "evidence": ["E#30"], "decision": "direct"}
+{"instance_id": "synth_000294", "answer": "58", "evidence": ["y-441D", "X#82"], "decision": "direct"}
+{"instance_id": "synth_000295", "answer": "9", "evidence": ["2g76"], "decision": "direct"}
+{"instance_id": "synth_000296", "answer": "62", "evidence": ["r-893T"], "decision": "direct"}
+{"instance_id": "synth_000297", "answer": "70", "evidence": ["RE8-1A4"], "decision": "direct"}
+{"instance_id": "synth_000298", "answer": "53", "evidence": ["31/Z8"], "decision": "direct"}
+{"instance_id": "synth_000299", "answer": "43", "evidence": ["R48-792", "8s09"], "decision": "direct"}
+{"instance_id": "synth_000300", "answer": "73", "evidence": ["R61-439"], "decision": "direct"}
